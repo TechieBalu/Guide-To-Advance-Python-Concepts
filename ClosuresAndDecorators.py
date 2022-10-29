@@ -28,7 +28,7 @@ def deco(func):
     def innerFunc():
         func(x)
 
-    return innerFunc()
+    return innerFunc
 
 '''
 As you can see above we call the inner function of deco() function in it's return statement because 
@@ -41,7 +41,12 @@ existing object without modifying its structure. Decorators are usually called b
 definition of a function you want to decorate.
 '''
 @deco 
-def myfunc(x):
+def myfunc(x=10):
     z = x+30
     print(z)
     print("Hello Earth!")
+    return "End of Execution"
+
+
+call = deco(myfunc)
+# call()
