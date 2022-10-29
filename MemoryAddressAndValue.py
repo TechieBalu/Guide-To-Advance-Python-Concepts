@@ -9,9 +9,10 @@ You can get the memory address of any varible by using the id() function
 and then get the value stored on that memory address using the ctypes class which is used to
 deal wil thee DLL and shared library files- you can see the functions of ctypes class at line 19 
 '''
-wel = welcome()
+wel = welcome
 print("Memory address of welcome function: ",id(welcome))
 del welcome
+print(wel())
 # we will see that even after deleting the welcome function, we can access it using our copy which is stored in the "wel" variable.
 print("Memory address of wel variable which is copy of welcome() function: ",id(wel))
 welID = id(wel)
