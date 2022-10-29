@@ -1,23 +1,14 @@
-import ctypes
+'''
+Closure: Closure in Python is an inner function object, a function that behaves like an object, 
+that remembers and has access to variables in the local scope 
+(inner function have all the access of the variables and parameters of outer function) 
+in which it was created even after the outer function has finished executing.
 
-def welcome():
-    return "Hello World!"
-
-
-wel = welcome()
-# del welcome
-print(id(welcome))
-print(welcome)
-print(id(wel))
-# welcomeID = id(welcome)
-welID = id(wel)
-print(id(welID))
-# print(ctypes.cast(id(welcome),ctypes.py_object).value)
-print(ctypes.cast(id(wel),ctypes.py_object).value)
-
+Simple defintion: Fuction in a function is called closures in python 
+'''
 
 def deco(func):
-    print("We are bad")
+    print("Hello Mars!")
     x = 10
     func(x)
     return 7
@@ -26,7 +17,31 @@ def deco(func):
 def myfunc(x):
     z = x+30
     print(z)
-    print("We are GOOD")
+    print("Hello Earth!")
 
+# --------------------------------------------------------------------------------------------------------------
+# or you can use the closure property as well with decorators
 
-myfunc
+def deco(func):
+    print("Hello Mars!")
+    x = 10
+    def innerFunc():
+        func(x)
+
+    return innerFunc()
+
+'''
+As you can see above we call the inner function of deco() function in it's return statement because 
+inner function cannot be called out of the scope of the outer functions and they have access of all global as well as 
+outer function's parameters 
+'''
+'''
+A decorator is a design pattern in Python that allows a user to add new functionality to an 
+existing object without modifying its structure. Decorators are usually called before the 
+definition of a function you want to decorate.
+'''
+@deco 
+def myfunc(x):
+    z = x+30
+    print(z)
+    print("Hello Earth!")
