@@ -22,10 +22,6 @@ We will talk about the following topics:
 
 At the end of this series, you can find the `.doc` file as well in the Resources directory of this repo. 
 
-Happy Coding!
-
-
-
-
-
+Happy Coding! 
+-
 Copyright (c) 2022 Shahmeer Khan
