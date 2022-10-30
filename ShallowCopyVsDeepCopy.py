@@ -56,3 +56,5 @@ list2 = copy.deepcopy(list1)
 list1[1][2] = 1000
 print("DeepCopy list1 by using copy.deepcopy() function: ",list1)
 print("DeepCopy list2 by using copy.deepcopy() function: ",list2)
+
+# Deepcopy will work both with the 1D lists and multi dimensional lists 
