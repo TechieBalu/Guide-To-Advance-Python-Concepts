@@ -13,7 +13,7 @@ def deco(func):
     func(x)
     return 7
 
-@deco 
+@deco()
 def myfunc(x):
     z = x+30
     print(z)
@@ -50,3 +50,27 @@ def myfunc(x=10):
 
 call = deco(myfunc)
 # call()
+
+
+#  Decorators Chainning: 
+
+def decor1(func):
+    def inner():
+        x = func()
+        return x * x
+    return inner
+ 
+def decor(func):
+    def inner():
+        x = func()
+        return 2 * x
+    return inner
+ 
+@decor1
+@decor
+def num():
+    return 10
+ 
+print(num())
+
+# it is same as decor1(decor(num))
