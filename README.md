@@ -5,6 +5,8 @@ We will talk about the following topics:
 - Accessing memory addresses and value on the memory addresses
 - Shallow Copy and Deep Copy 
 - Iterators and Generators 
+- String Formattings
+- DateTime conversions
 - Magic or Dunder Functions in Python
 - Map Function
 - Lambda Function
