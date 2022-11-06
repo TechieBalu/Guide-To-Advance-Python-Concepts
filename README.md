@@ -4,7 +4,8 @@ We will talk about the following topics:
 - Closures and Decorators in Python 
 - Accessing memory addresses and value on the memory addresses
 - Shallow Copy and Deep Copy 
-- Iterators and Generators 
+- Iterables vs Iterators
+- Iterators vs Generators
 - String Formattings
 - DateTime conversions
 - Magic or Dunder Functions in Python
