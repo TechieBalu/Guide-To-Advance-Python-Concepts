@@ -1,16 +1,17 @@
 # Advance Python Concepts
 
 We will talk about the following topics: 
-- Closures and Decorators in Python 
-- Accessing memory addresses and value on the memory addresses
-- Shallow Copy and Deep Copy 
-- Iterables vs Iterators
-- Iterators vs Generators
+- Closures and Decorators in Python 	:white_check_mark:
+- Accessing memory addresses and value on the memory addresses 	:white_check_mark:
+- Shallow Copy and Deep Copy 	:white_check_mark:
+- Iterables vs Iterators 	:white_check_mark:
+- Iterators vs Generators 	:white_check_mark:
 - String Formattings
 - DateTime conversions
 - Magic or Dunder Functions in Python
-- Map Function
-- Lambda Function
+- Lambda Function 	:white_check_mark:
+- Map Function 	:white_check_mark:
+- Filter Function 	:white_check_mark:
 - Itertools in Python
 - Collections
 - Counters
