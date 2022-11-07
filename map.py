@@ -7,11 +7,6 @@ def find_even_odd(num):
 l1 = [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15]
 print(list(map(find_even_odd,l1)))
 
-
-
-
-
-
 # def getLength(x):
 #     return(len(x))
 
