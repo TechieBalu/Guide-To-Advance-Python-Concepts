@@ -6,8 +6,8 @@ We will talk about the following topics:
 - Shallow Copy and Deep Copy 	:white_check_mark:
 - Iterables vs Iterators 	:white_check_mark:
 - Iterators vs Generators 	:white_check_mark:
-- String Formattings
-- DateTime conversions
+- String Formattings 
+- DateTime conversions 
 - Magic or Dunder Functions in Python
 - Lambda Function 	:white_check_mark:
 - Map Function 	:white_check_mark:
@@ -29,3 +29,4 @@ At the end of this series, you can find the `.doc` file as well in the Resources
 Happy Coding! 
 -
 Copyright (c) 2022 Shahmeer Khan
+
