@@ -29,3 +29,7 @@ print("Hello {} World!".format(varStr))
 print("Integer is {}".format(varInt))
 print("Float is {}".format(varFloat))
 print("Multiple variables like: {} {} {} in the string".format(varStr,varInt,varFloat))
+
+
+
+print(dir(int))
