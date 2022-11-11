@@ -8,7 +8,7 @@ Simple defintion: Fuction in a function is called closures in python
 '''
 
 def deco(func):
-    print("Hello Mars!")
+    print("Hello Saturn!")
     x = 10
     func(x)
     return 7
