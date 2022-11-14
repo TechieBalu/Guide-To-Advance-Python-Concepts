@@ -17,6 +17,62 @@ and is released under the "Commercial License Agreement".
 You should have received a copy of the Commercial License Agreement license with
 this file. If not, please write to: legal@sequenx.com, or visit www.sequenx.com'''
 
+
+
+CopyrightTexts = '''
+Copyright (c) 2010 Daniel Wachsstock
+
+Copyright (C) 2011-2019 Twitter, Inc.
+
+Copyright (C) 2013-2015 The Bootstrap Tour community
+
+Copyright (C) Zeno Rocha
+
+Copyright (C) 2014 Wang Shenwei
+
+(C) Zeno Rocha
+
+Copyright (C) 2018 David DeSandro
+
+Copyright (C) 2013-2015 by Andrea Giammarchi - @WebReflection
+
+Copyright (C) 2014 Yehuda Katz, Tom Dale, Stefan Penner and contributors
+
+Copyright (C) 2018 David DeSandro
+
+Copyright (C) 2020 Jan van der Pas
+
+Copyright (C) 2018 David DeSandro <http://desandro.com>
+
+Copyright © 2021 Zeno Rocha <hi@zenorocha.com>
+
+Copyright (C) 2012 Barnesandnoble.com, llc, Donavon West, Domenic Denicola, Brian Cavalier
+
+Copyright (C) 2011 Tapmodo Interactive LLC, http://github.com/tapmodo/Jcrop
+
+Copyright jQuery Foundation and other contributors, https://jquery.org
+
+Copyright 2012 jQuery Foundation and other contributors, http://jquery.com
+
+Copyright (C) 2014 Jochen Ulrich (http://github.com/j-ulrich/jquery-simulate-ext)
+
+Copyright OpenJS Foundation and other contributors <https://openjsf.org/>
+
+Copyright 2013 by Erik Krogh Kristensen (webbies.dk)
+
+Copyright (C) 2016-2019 David Heinemeier Hansson, Basecamp
+'''
+
+
+CopyRightTexts2 = '''
+
+Author: Oleg Korsunsky <wd@dizaina.net>
+
+Owner: Ben Kamens (http://bjk5.com/)
+
+Author, Email: dave@fontawesome.io, Twitter: http://twitter.com/davegandy, GitHub: https://github.com/davegandy
+
+'''
 # print(re.findall(text,"Copyright"))
 x=None
 s = "Welcome to GeeksForGeeks"
