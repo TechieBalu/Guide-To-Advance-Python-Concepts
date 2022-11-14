@@ -61,6 +61,7 @@ Copyright OpenJS Foundation and other contributors <https://openjsf.org/>
 Copyright 2013 by Erik Krogh Kristensen (webbies.dk)
 
 Copyright (C) 2016-2019 David Heinemeier Hansson, Basecamp
+
 '''
 
 
@@ -128,4 +129,4 @@ stringMatching(x)
 
 
 print("------------------COPYRIGHT TEXT--------------------")
-print(re.findall(r'Copyright ([\s\S]*)[\n|\r\n|\r][\n]',text))
+print(re.findall(r'Copyright ([\s\S]*)[\n|\r\n|\r][\n]',CopyrightTexts))
