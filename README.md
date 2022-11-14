@@ -12,6 +12,7 @@ We will talk about the following topics:
 - Lambda Function 	:white_check_mark:
 - Map Function 	:white_check_mark:
 - Filter Function 	:white_check_mark:
+- Argparsers 
 - Itertools in Python
 - Collections
 - Counters
