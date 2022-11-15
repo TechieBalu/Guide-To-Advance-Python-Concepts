@@ -62,16 +62,25 @@ Copyright 2013 by Erik Krogh Kristensen (webbies.dk)
 
 Copyright (C) 2016-2019 David Heinemeier Hansson, Basecamp
 
+Copyright (c) 2019, Sentry
+
+Copyright (c) 2014, Paul Macek
+
+Copyright 2013 Anthon Pang
+
+
 '''
 
 
-CopyRightTexts2 = '''
+CopyrightTexts2 = '''
 
 Author: Oleg Korsunsky <wd@dizaina.net>
 
 Owner: Ben Kamens (http://bjk5.com/)
 
 Author, Email: dave@fontawesome.io, Twitter: http://twitter.com/davegandy, GitHub: https://github.com/davegandy
+
+Author: Andrew Rowls Community (https://github.com/eternicode/bootstrap-datepicker...)
 
 '''
 # print(re.findall(text,"Copyright"))
@@ -129,4 +138,28 @@ stringMatching(x)
 
 
 print("------------------COPYRIGHT TEXT--------------------")
-print(re.findall(r'Copyright ([\s\S]*)[\n|\r\n|\r][\n]',CopyrightTexts))
+print(re.findall(r'Copyright ([\s\S\w]*)[\n|\r\n|\r][\n]',CopyrightTexts))
+
+# pattern = re.compile("hello", flags=re.I)
+
+# pattern = re.compile("hello")
+# match = pattern.match("hello world")
+# print(match)
+# print(match.span())
+# print(match.start())
+# print(match.end())
+# # pattern = re.compile("hello")
+# # print(pattern)
+# # from utils import highlight_regex_matches
+# # highlight_regex_matches(pattern, "say hello hello")
+# pattern.findall("say hello hello")
+# re.search(re.escape("C:\Windows\System32"), txt)
+# matches = pattern.finditer("say hello hello")
+# for match in matches:
+#     print(match.span())
+# (4, 9)
+# (10, 15)
+
+print("#############################################")
+print(re.findall("Copyright.*",text))
+print(re.findall(r'Copyright.*',CopyrightTexts , re.I))
