@@ -10,12 +10,20 @@
 import re 
 
 
-text = '''Copyright (C) 2022 by SeQuenX  - All Rights Reserved
+text = '''
+
+Copyright (C) 2022 by SeQuenX  - All Rights Reserved
 This file is part of the ComplyVantage product development,
 and is released under the "Commercial License Agreement".
 
 You should have received a copy of the Commercial License Agreement license with
-this file. If not, please write to: legal@sequenx.com, or visit www.sequenx.com'''
+this file. If not, please write to: legal@sequenx.com, or visit www.sequenx.com
+
+
+
+
+
+'''
 
 
 
@@ -67,6 +75,10 @@ Copyright (c) 2019, Sentry
 Copyright (c) 2014, Paul Macek
 
 Copyright 2013 Anthon Pang
+
+print("#############################################")
+print(re.findall("Copyright.*",text))
+print(re.findall(r'Copyright.*',CopyrightTexts , re.I))
 
 
 '''
@@ -162,4 +174,193 @@ print(re.findall(r'Copyright ([\s\S\w]*)[\n|\r\n|\r][\n]',CopyrightTexts))
 
 print("#############################################")
 print(re.findall("Copyright.*",text))
-print(re.findall(r'Copyright.*',CopyrightTexts , re.I))
+
+print("ALL Copyrights")
+print(re.findall(r"Copyright.*",CopyrightTexts , re.I))
+# s = '<html><head><title>Title</title>'
+
+# print(re.findall('a{1,2}', 'aaaa a aa'))
+
+
+
+
+
+
+
+
+
+
+end_pats = (r'This implementation just',
+            r'Synopsis of public',
+            r'The SPU must have',
+            r'This is a simple version',
+            r'This is a dummy',
+            r'stdio_ext\.h',
+            r'python script to',
+            r'libgen\.h',
+            r'Id:.*Exp',
+            r'sccs\.',
+            r'Tests gleaned',
+            r'tar\.h',
+            r'tzcalc_limits\.c',
+            r'dummy file',
+            r'Rearranged for general',
+            r'sincos',
+            r'POSIX',
+            r'Reentrant',
+            r'Copied',
+            r'These are',
+            r'creat',
+            r'ARM configuration',
+            r'Place holder',
+            r'local header',
+            r'GNU variant',
+            r'default reentrant',
+            r'A replacement',
+            r'The signgam',
+            r'dummy header',
+            r'Uniset',
+            r'wcsftime\.c',
+            r'month_lengths\.c',
+            r'Static instance',
+            r'Conversion is performed',
+            r'Common routine',
+            r'l64a')
+
+end_pats_s = (r'FUNCTION',)
+
+end_res = []
+for pat in end_pats:
+        regex = re.compile(pat, re.I)
+        end_res += [regex]
+
+for pat in end_pats_s:
+        regex = re.compile(pat)
+        end_res += [regex]
+
+left_res = re.compile(r'^[^A-Za-z0-9]*(.*)')
+right_res = re.compile(r'(.*)[ /*\t]$')
+
+
+
+
+def clean_copyright(string):
+        copyright = []
+        have_cpr = False
+        cpr_line = re.compile(r'copyright.*(20[0-2][0-9]|19[7-9][0-9])', re.I)
+        upper = re.compile(r'[A-Z]')
+        lower = re.compile(r'[a-z]')
+        modified = re.compile(r'Modified')
+        derived = re.compile(r'code is derived from software', re.I)
+        skipping = False
+        only_upper = False
+        for line in string.splitlines():
+                m = cpr_line.search(line)
+                if m:
+                        line = line[m.start():]
+                        m = re.match(r'(.*<[^>]+>).*', line)
+                        if m:
+                                line = line[:m.end()]
+                        have_cpr = True
+
+                if not have_cpr:
+                        continue
+
+                end = False
+                for regex in end_res:
+                        if regex.search(line):
+                                end = True
+                                break
+                if end:
+                        break
+
+                if modified.search(line):
+                        skipping = True
+                        continue
+                if derived.search(line):
+                        skipping = True
+                        continue
+                if only_upper:
+                        if lower.search(line):
+                                break
+                elif upper.search(line) and not lower.search(line):
+                        only_upper = True
+                
+                line = left_res.match(line).group(1)
+                while True:
+                        m = right_res.match(line)
+                        if not m:
+                                break
+                        line = m.group(1)
+                if skipping:
+                        if len(line) == 0:
+                                skipping = False
+                        continue
+                copyright += [line]
+        t = '\n'.join(copyright).strip()
+        return t
+
+
+
+print("######################COPY RIGHTTTTTT########################")
+
+print(clean_copyright(text))
+
+
+
+'''
+This regex is not extracting the "copyright 2014 Daniel", copyright statements 
+but it is extracting the 
+
+'''
+regexForMultipleCR = '[cC]opyright\s+\(?[cC]+\)?[^=^\n.]*'
+
+regexForMultipleCR = '[cC]opyright\s+(\d{4,})?\(?[cC]*\)?[^=^\n.]*'
+
+regexForMultipleCR = '[cC]opyright\s+(\d{4,})?\(?[cC]*\)?[^=^\n.]*'
+
+cp2 = '''
+Copyright (c) 2010 Daniel Wachsstock
+
+Copyright (C) 2012 Barnesandnoble.com, llc, Donavon West, Domenic Denicola, Brian Cavalier
+
+Copyright (C) 2014 Jochen Ulrich (http://github.com/j-ulrich/jquery-simulate-ext)
+
+Copyright OpenJS Foundation and other contributors <https://openjsf.org/>
+
+Copyright OpenJS Foundation and other contributors <https://openjsf.org/>
+
+Copyright (c) 2014, Paul Macek
+
+Copyright (C) 2011-2019 Twitter, Inc.
+
+Copyright (C) 2013-2015 The Bootstrap Tour community
+
+Copyright (C) Zeno Rocha
+
+Copyright (C) 2014 Wang Shen
+
+Copyright 2014 Daniel
+
+Copyright = 5
+
+def copyright(num):
+
+class copyright:
+
+def copyright(c): 
+
+copyright=5
+
+copyright = 8 
+
+def copyright(Num):
+'''
+
+regexFinalForAllCopyrights = r'^copyright\s+\(?c?\)?[^=^\n].*'
+ot = r"^[cC]opyright\s+([cC])?[^=^\n].*"
+print(ot)
+print("-----------------------------ALL COPYRIGHTS-------------------------------------")
+copyrightStatements = re.findall(ot,cp2,re.I|re.M)
+print(copyrightStatements)
+print("Length of Copyright Statement: ",len(copyrightStatements))
