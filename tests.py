@@ -1,3 +1,5 @@
+import re
+
 cp2 = '''
 Copyright (c) 2010 Daniel Wachsstock
 
@@ -41,18 +43,11 @@ def copyright(Num):
 
 regexFinalForAllCopyrights = r'^copyright\s+\(?c?\)?[^=^\n].*'
 ot = r"^[cC]opyright\s+([cC])?[^=^\n].*"
-print(ot)
-print("-----------------------------ALL COPYRIGHTS-------------------------------------")
-copyrightStatements = re.findall(ot,cp2,re.I|re.M)
-print(copyrightStatements.group())
-print(copyrightStatements)
-print("Length of Copyright Statement: ",len(copyrightStatements))
-
-
 extractdates = '\s\d{4}-?(\d{4})?(\s,)?'
-print(extractdates)
-copyrightStatements = re.findall(extractdates,cp2,re.I|re.M)
-# print("Dates: ", copyrightStatements)
-pattern = re.compile(extractdates)
-replace = pattern.sub("NONEEEEEEEEEEEEE", cp2, re.I|re.M)
-print("replace" , replace)
+
+# match = re.findall(regexFinalForAllCopyrights,cp2,re.I|re.M)
+# print(match)
+
+
+dateMatch = ["".join(x) for x in re.findall(extractdates, extractdates)]
+print(dateMatch)
