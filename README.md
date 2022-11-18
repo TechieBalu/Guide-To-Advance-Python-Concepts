@@ -22,6 +22,7 @@ We will talk about the following topics:
 - File Handling 
 - Exception Handling in Python
 - Threading and Multiprocessing Concepts 
+- Parallelization in Python
 - Regular Expressions in Python 
 - Logging in Python 
 
