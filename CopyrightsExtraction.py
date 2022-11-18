@@ -22,13 +22,17 @@ def tokenizer(filePath):
     count2 = 0    #tag to store position of each element in cleaned up code text
     # these tags are used to mark the plagiarized content in the original code files.
     for i in range(lenT):
-        if tokens[i][0] == pygments.token.Text or tokens[i][0] in pygments.token.Comment:
+        if tokens[i][0] == pygments.token.Text or tokens[i][0] in pygments.token.Comment or tokens[i][0] in pygments.token.Comment.Multiline:
+            if tokens[i][0] in pygments.token.Comment.Special: 
+                print("YESSSSS")
             result.append(tokens[i][1])
         else:
             continue
             #tuples in result-(each element e.g 'def', its position in original code file, position in cleaned up code/text) 
             # count2 += len(tokens[i][1])
         # count1 += len(tokens[i][1])
+    
+    print(result)
     return result
 
 
@@ -62,19 +66,24 @@ def extractDates(extractedCopyrightStatements):
     return match
 
 
-def processIterators(iterator, extractedCopyrightStatements):
+def extractSpans(iterator, extractedCopyrightStatements):
     # print(iterator)
-    result = []
+    spans = []
     dates = []
     for match in iterator:
-        print(match.span())
-        result.append(match.span())
-        index = match.span() 
-        dates.append(extractedCopyrightStatements[index[0]:index[1]])
+        # print(match.span())
+        spans.append(match.span())
+        # index = match.span() 
+        # dates.append(extractedCopyrightStatements[index[0]:index[1]])
     
+    return spans
+
+def locateDates(spans,extractedCopyrightStatements):
+    # index = spans.span() 
+    dates = []
+    for i in spans:
+        dates.append(extractedCopyrightStatements[i[0]:i[1]])
     return dates
-    # print(i[0])
-    
 
 # comments = tokenize(r"D:\2022\Python Practice\regex.py")
 
@@ -85,17 +94,20 @@ def initiator(filePath):
     # print(cleanedCode)
     copyrights = copyrightsExtraction(cleanedCode)
     print("-----------------------------Copyright Statements in the code file--------------------")
+    print(copyrights)
     copyrights = " ".join(copyrights)
     # print(copyrights)
     # unCleanedDates = list(map(extractDates, copyrights))
     unCleanedDates = extractDates(copyrights)
     # unCleanedDates = extractDates(copyrights)
     # print(unCleanedDates.span())
-    print(unCleanedDates)
+    # print(unCleanedDates)
     # for i in unCleanedDates:
     #     print(i.span())
     # print(unCleanedDates)
-    dates = processIterators(unCleanedDates,copyrights)
+    spans = extractSpans(unCleanedDates,copyrights)
+    # print(spans)
+    dates = locateDates(spans,copyrights)
     print(dates)
 
     # return copyrights , dates
@@ -111,3 +123,7 @@ print(initiator(r"D:\2022\Python Practice\tests.py"))
 #     text = f.read()
 
 
+# from comment_parser import comment_parser
+# import magic
+# # Returns a list of comment_parser.parsers.common.Comments
+# print(comment_parser.extract_comments(r"D:\2022\Python Practice\tests.py"))
