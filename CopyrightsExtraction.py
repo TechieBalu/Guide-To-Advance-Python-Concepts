@@ -23,7 +23,7 @@ def tokenizer(filePath):
     # these tags are used to mark the plagiarized content in the original code files.
     for i in range(lenT):
         if tokens[i][0] == pygments.token.Text or tokens[i][0] in pygments.token.Comment or tokens[i][0] in pygments.token.Comment:
-            if tokens[i][0] == pygments.token.String.Doc: 
+            if tokens[i][0] in pygments.Token.Literal.String.Doc: 
                 print("YESSSSS")
                 print(tokens[i])
             result.append(tokens[i][1])
@@ -120,6 +120,7 @@ def initiator(filePath):
 
 
 print(initiator(r"D:\2022\Python Practice\tests.py"))
+# print(pygments.token.Comment)
 # with open(r'D:\2022\Python Practice\test2.py', 'r' ,encoding='utf-8' , errors='ignore') as f:
 #     text = f.read()
 
