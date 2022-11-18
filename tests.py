@@ -1,5 +1,4 @@
-'''
-Copyright (c) 2010 Daniel Wachsstock
+''' Copyright (c) 2010 Daniel Wachsstock
 
 Copyright (C) 2012 Barnesandnoble.com, llc, Donavon West, Domenic Denicola, Brian Cavalier
 

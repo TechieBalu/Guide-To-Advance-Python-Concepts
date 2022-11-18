@@ -22,9 +22,10 @@ def tokenizer(filePath):
     count2 = 0    #tag to store position of each element in cleaned up code text
     # these tags are used to mark the plagiarized content in the original code files.
     for i in range(lenT):
-        if tokens[i][0] == pygments.token.Text or tokens[i][0] in pygments.token.Comment or tokens[i][0] in pygments.token.Comment.Multiline:
-            if tokens[i][0] in pygments.token.Comment.Special: 
+        if tokens[i][0] == pygments.token.Text or tokens[i][0] in pygments.token.Comment or tokens[i][0] in pygments.token.Comment:
+            if tokens[i][0] == pygments.token.String.Doc: 
                 print("YESSSSS")
+                print(tokens[i])
             result.append(tokens[i][1])
         else:
             continue
