@@ -3,8 +3,6 @@ import pygments
 import pygments.token
 import pygments.lexers
 
-
-
 def tokenizer(filePath):
 
     # file = open(filePath, "r")
@@ -85,8 +83,6 @@ def locateDates(spans,extractedCopyrightStatements):
     for i in spans:
         dates.append(extractedCopyrightStatements[i[0]:i[1]])
     return dates
-
-# comments = tokenize(r"D:\2022\Python Practice\regex.py")
 
 
 def initiator(filePath):
