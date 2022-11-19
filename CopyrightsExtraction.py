@@ -84,6 +84,9 @@ def locateDates(spans,extractedCopyrightStatements):
         dates.append(extractedCopyrightStatements[i[0]:i[1]])
     return dates
 
+def licenseExtractor(comments):
+    regexForLicenseExtraction = '((The)?\s*MIT\s+(License|Licence)?\s)'
+
 
 def initiator(filePath):
     tokenized = tokenizer(filePath)
