@@ -86,6 +86,7 @@ def locateDates(spans,extractedCopyrightStatements):
 
 def licenseExtractor(comments):
     regexForLicenseExtraction = '((The)?\s*MIT\s+(License|Licence)?\s)'
+    pattern = re.compile(regexForLicenseExtraction)
 
 
 def initiator(filePath):
