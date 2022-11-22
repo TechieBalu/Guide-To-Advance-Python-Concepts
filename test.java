@@ -1,8 +1,0 @@
-// OKEEEYYY
-// PAKSTAN
-
-/*
-
-okeyyyyyyyyyyyyyyyyyyyyyyyy
-fine
-*/
