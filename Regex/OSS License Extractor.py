@@ -1,5 +1,6 @@
 import re,os
 import Licenses
+import tokenizer
 
 def generalizedLicenseExtraction(text):
     license = Licenses.licenses
