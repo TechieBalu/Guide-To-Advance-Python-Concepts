@@ -2,6 +2,11 @@ import re,os
 import Licenses
 import tokenizer
 
+
+def cleanUp(commentsListFromTokenizer):
+    result = " ".join(commentsListFromTokenizer)
+    return result
+
 def generalizedLicenseExtraction(text):
     license = Licenses.licenses
     results = []
@@ -45,5 +50,9 @@ def licenseRefiner(match,text):
 
 
 
-def initiator():
-    pass
+def initiator(filePath):
+    tokenized = tokenizer.tokenizer(filePath)
+    cleanedCode = cleanUp(tokenized)
+    print("\n\n------------------------------ Licenses ---------------------------------")
+    match = generalizedLicenseExtraction(cleanedCode)
+    print(licenseRefiner(match , cleanedCode))
