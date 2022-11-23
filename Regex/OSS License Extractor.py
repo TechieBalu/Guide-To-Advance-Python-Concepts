@@ -56,3 +56,7 @@ def initiator(filePath):
     print("\n\n------------------------------ Licenses ---------------------------------")
     match = generalizedLicenseExtraction(cleanedCode)
     print(licenseRefiner(match , cleanedCode))
+
+
+
+initiator(r"D:\2022\Python Practice\Regex\test.java")
