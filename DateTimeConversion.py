@@ -90,12 +90,16 @@ def datetimeFunc():
     print(a)
 
 def getDateTimeChunks():
-    a = datetime.datetime(1999, 12, 12, 12, 12, 12)
+    a = datetime.datetime(1999, 1, 12, 12, 12, 12)
     print("year =", a.year)
     print("month =", a.month)
     print("hour =", a.hour)
     print("minute =", a.minute)
-    print("timestamp =", a.timestamp())
+    print("timestamp =", datetime.datetime.timestamp(a))
 
 
-getDateTimeChunks()
+def currentDateTime():
+    currentDateAndTime = datetime.datetime.now()
+    print(currentDateAndTime)
+
+currentDateTime()
