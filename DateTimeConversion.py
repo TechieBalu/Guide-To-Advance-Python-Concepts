@@ -72,9 +72,14 @@ def convetingStringTimeObjectintoTimeClassObject():
 # getTime()
 
 def replaceFunc():
-    time = datetime.time(hour = 11,minute = 34, second = 56, microsecond=11)
+    time = datetime.time(hour = 11)
     replacement = time.replace(hour=5)
     print(replacement)
 
+def strfTimeConversion():
+    time = datetime.time(hour= 11, minut = 34)
+    replacement = time.strftime("%H/%M")
+    print(replacement)
 
-replaceFunc()
+
+strfTimeConversion()
