@@ -71,4 +71,10 @@ def convetingStringTimeObjectintoTimeClassObject():
 # getDate()
 # getTime()
 
-convetingStringTimeObjectintoTimeClassObject()
+def replaceFunc():
+    time = datetime.time(hour = 11,minute = 34, second = 56, microsecond=11)
+    replacement = time.replace(hour=5)
+    print(replacement)
+
+
+replaceFunc()
