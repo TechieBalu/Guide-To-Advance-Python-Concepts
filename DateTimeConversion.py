@@ -77,9 +77,25 @@ def replaceFunc():
     print(replacement)
 
 def strfTimeConversion():
-    time = datetime.time(hour= 11, minut = 34)
+    time = datetime.time(hour= 11, minute = 34)
     replacement = time.strftime("%H/%M")
     print(replacement)
 
+def datetimeFunc():
+    a = datetime.datetime(1999, 12, 12)
+    print(a)
+    # Initializing constructor
+    # with time parameters as well
+    a = datetime.datetime(1999, 12, 12, 12, 12, 12, 342380)
+    print(a)
 
-strfTimeConversion()
+def getDateTimeChunks():
+    a = datetime.datetime(1999, 12, 12, 12, 12, 12)
+    print("year =", a.year)
+    print("month =", a.month)
+    print("hour =", a.hour)
+    print("minute =", a.minute)
+    print("timestamp =", a.timestamp())
+
+
+getDateTimeChunks()
