@@ -106,4 +106,11 @@ def currentDateTime():
 def getTodaysDate():
     todaysDate = datetime.date.today()
     print(todaysDate)
-getTodaysDate()
+
+
+def getTodaysDateandSplitIntoChunks():
+    todaysDate = datetime.date.today()
+    print(todaysDate.year)
+    print(todaysDate.month)
+    print(todaysDate.day)
+getTodaysDateandSplitIntoChunks()
