@@ -102,4 +102,8 @@ def currentDateTime():
     currentDateAndTime = datetime.datetime.now()
     print(currentDateAndTime)
 
-currentDateTime()
+
+def getTodaysDate():
+    todaysDate = datetime.date.today()
+    print(todaysDate)
+getTodaysDate()
