@@ -113,4 +113,13 @@ def getTodaysDateandSplitIntoChunks():
     print(todaysDate.year)
     print(todaysDate.month)
     print(todaysDate.day)
-getTodaysDateandSplitIntoChunks()
+
+
+def convertingDateIntoString():
+    date = datetime.date.today()
+    # dateIntoString = date.isoformat()
+    # OR we can write below line too
+    dateIntoString = datetime.date.isoformat(date)
+    print(dateIntoString)
+    print(type(dateIntoString))
+convertingDateIntoString()
