@@ -122,4 +122,21 @@ def convertingDateIntoString():
     dateIntoString = datetime.date.isoformat(date)
     print(dateIntoString)
     print(type(dateIntoString))
-convertingDateIntoString()
+
+def astimeZone():
+    d1 = datetime.datetime.now()
+ 
+    # Calling the astimezone() function without
+    # any timezone parameter
+    d2 = d1.astimezone()
+
+    # Printing the local current date, time and
+    # timezone
+    print(format(d2))
+
+def dateTimeCombineFunction():
+    d = datetime.date.today()
+    t = datetime.datetime.now().time()
+    print(datetime.datetime.combine(d,t))
+    print(d,t)
+dateTimeCombineFunction()

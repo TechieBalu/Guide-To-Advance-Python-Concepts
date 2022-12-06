@@ -1,7 +1,16 @@
-l1 = [1,2,3]
+l1 =  [value for value in range(0,5000000)]
+import time
 
-print(l1)
+startTime = time.time()
+l2 = l1[:]
+endTime = time.time()
+print((endTime - startTime))
 
-del l1
+# l2[0] =555
+# print(l1)
+# print(l2)
 
-print(l1)
+startTime2 = time.time()
+l3 = l1.copy()
+endTime2 = time.time()
+print((endTime2-startTime2))
