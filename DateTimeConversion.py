@@ -156,3 +156,4 @@ def ctimeOfDateTime():
     # Calling the ctime() function over the above date
     print("Today's date: %s"%date_From_CurrentTime.ctime());
 ctimeOfDateTime()
+
