@@ -158,6 +158,7 @@ def ctimeOfDateTime():
 
 
 def convertingDateIntoString():
-    
-ctimeOfDateTime()
+    date = datetime.date.today()
+    print(datetime.date.isoformat(date))
+convertingDateIntoString()
 
