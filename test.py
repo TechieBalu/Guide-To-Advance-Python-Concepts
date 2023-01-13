@@ -14,6 +14,7 @@ startTime2 = time.time()
 l3 = l1.copy()
 endTime2 = time.time()
 print((endTime2-startTime2))
+<<<<<<< HEAD
 
 
 (features\.denseblock[2|3|4]$)
@@ -22,3 +23,5 @@ print((endTime2-startTime2))
 ^(?!features\.denseblock(?:2|3|4)).*
 
 ^(?!features\.denseblock(?:2|3|4)).*
+=======
+>>>>>>> b7ce42a11d4e5719e2388b8be259122aae18f800

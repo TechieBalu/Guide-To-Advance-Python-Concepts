@@ -1,5 +1,5 @@
 import datetime
-
+import time
 '''
 datetime is a module in python, that provides us with 6 classes, which has multiple useful functions.
 We dont need to install this module seperately, it comes with the default installation of python. 
@@ -122,4 +122,43 @@ def convertingDateIntoString():
     dateIntoString = datetime.date.isoformat(date)
     print(dateIntoString)
     print(type(dateIntoString))
+
+def astimeZone():
+    d1 = datetime.datetime.now()
+ 
+    # Calling the astimezone() function without
+    # any timezone parameter
+    d2 = d1.astimezone()
+
+    # Printing the local current date, time and
+    # timezone
+    print(format(d2))
+
+def dateTimeCombineFunction():
+    d = datetime.date.today()
+    t = datetime.datetime.now().time()
+    print(datetime.datetime.combine(d,t))
+    print(d,t)
+
+def ctimeOfDateTime():
+    Todays_time = time.time()
+  
+# Printing today's time
+    print(Todays_time)
+  
+    # Calling the fromtimestamp() function
+    # to get date from the current time
+    date_From_CurrentTime = datetime.date.fromtimestamp(Todays_time);
+    
+    # Printing the current date
+    print("Date for Timestamp used is: %s"%date_From_CurrentTime);
+    
+    # Calling the ctime() function over the above date
+    print("Today's date: %s"%date_From_CurrentTime.ctime());
+
+
+def convertingDateIntoString():
+    date = datetime.date.today()
+    print(datetime.date.isoformat(date))
 convertingDateIntoString()
+
