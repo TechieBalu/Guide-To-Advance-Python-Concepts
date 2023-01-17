@@ -15,6 +15,7 @@ We will talk about the following topics:
 - HashMaps in Python
 - List vs Tuple vs Dictionary vs Sets vs Frozen sets
 - Argparsers 
+- Hashing techniques in Python
 - Itertools in Python
 - Collections
 - Counters
