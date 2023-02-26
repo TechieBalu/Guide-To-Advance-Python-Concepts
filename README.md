@@ -8,13 +8,14 @@ We will talk about the following topics:
 - Iterators vs Generators 	:white_check_mark:
 - String Formattings  :white_check_mark:
 - DateTime conversions 
-- Magic or Dunder Functions in Python :white_check_mark: (Read `.doc` for this article)
+- Magic or Dunder Functions in Python (Read `.doc` for this article)
 - Lambda Function 	:white_check_mark:
 - Map Function 	:white_check_mark:
 - Filter Function 	:white_check_mark:
 - HashMaps in Python
 - List vs Tuple vs Dictionary vs Sets vs Frozen sets
 - Argparsers 
+- Hashing techniques in Python
 - Itertools in Python
 - Collections
 - Counters
@@ -27,6 +28,7 @@ We will talk about the following topics:
 - Parallelization in Python
 - Regular Expressions in Python 
 - Logging in Python 
+- SECRETS OF PYTHON
 
 At the end of this series, you can find the `.doc` file as well in the Resources directory of this repo. `.doc` file will include all the notes with code snippets and their explanation.
 
