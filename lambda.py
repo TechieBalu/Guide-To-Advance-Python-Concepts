@@ -11,3 +11,5 @@ print(sum(12,20))
 even = lambda a: a%2==0
 print(even(5))
 print(even(90))
+
+
