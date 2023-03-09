@@ -24,6 +24,7 @@ We will talk about the following topics:
 - DeQueue
 - File Handling 
 - Exception Handling in Python
+- Sync and ASync in Python
 - Threading and Multiprocessing Concepts 
 - Parallelization in Python
 - Regular Expressions in Python 
