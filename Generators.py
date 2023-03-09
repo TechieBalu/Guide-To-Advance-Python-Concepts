@@ -23,14 +23,14 @@ def yeildTest (a):
     return a+8
 
 '''
-Yield keyword can alos be used with 
+Yield keyword can alos be used with the return statement in the same generator function, 
+return statement will be executed when yield will return all it's data 
 '''
 def test(l1):
     for i in l1: 
         print(i)
         yield i
-    
-    print("ok")
+    print("print line after the yield keyword")
     # return True 
 
 a = test(l1)
