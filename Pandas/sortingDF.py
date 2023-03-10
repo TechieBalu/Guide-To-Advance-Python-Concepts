@@ -7,7 +7,10 @@ data = {'Name': ['Alice', 'Bob', 'Charlie', 'Dave', 'Eve'],
         'City': ['New York', 'Los Angeles', 'Chicago', 'Houston', 'Miami'],
         'Salary': [50000, 60000, 70000, 80000, 90000]}
 
-
+dataset = pd.DataFrame(data)
 
 # *Sorting data frame
-print("\nSorted dataframe: ",  )
+print("\nSorted dataframe: ", dataset.sort_values("Salary") )
+
+# * Sorting in descending order
+print("\nSorted dataframe: ", dataset.sort_values("Salary", ascending = False) )
