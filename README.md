@@ -30,6 +30,7 @@ We will talk about the following topics:
 - Regular Expressions in Python 
 - Logging in Python 
 - SECRETS OF PYTHON
+- Zen of Python
 
 At the end of this series, you can find the `.doc` file as well in the Resources directory of this repo. `.doc` file will include all the notes with code snippets and their explanation.
 
