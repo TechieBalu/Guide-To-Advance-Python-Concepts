@@ -14,15 +14,15 @@ dataset = pd.DataFrame(data)
 print("1. Type of dataset variable is: ", type(dataset))
 
 # TODO: * Printing head() of dataframe, head function will give us some top rows of the dataframe
-print("2. Dataset Head: ", dataset.head())
+print("\n2. Dataset Head: ", dataset.head())
 
 # TODO * Printing info() of dataframe, info function will give us the information about how many columns we have, 
 # how many rows have null values in those columns, and,
 # what is the datatype of each column
-print("2. Dataset info: ", dataset.info())
+print("\n3. Dataset info: ", dataset.info())
 
 # TODO: * Printing shape of dataframe, it is attribute not a function, it gives us the rows and columns count (x,y)
-print("3. Dataset Shape: ",dataset.shape())
+print("\n4. Dataset Shape: ",dataset.shape)
 
 # TODO: * Printing describe() of dataframe, this function gives the description about the numeric columns data frame like 
 # 1. count of all non null values 
@@ -34,7 +34,7 @@ print("3. Dataset Shape: ",dataset.shape())
 # 7. 50% of total values in that column
 # 8. 75% of total values in that column
 # 9. max value of column
-print("4. Description about dataset: ", dataset.describe)
+print("\n5. Description about dataset: ", dataset.describe)
 
 
 # TODO: * Three important attibutes in pandas
