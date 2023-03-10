@@ -19,9 +19,10 @@ print("2. Dataset Head: ", dataset.head())
 # TODO * Printing info() of dataframe, info function will give us the information about how many columns we have, 
 # how many rows have null values in those columns, and,
 # what is the datatype of each column
+print("2. Dataset info: ", dataset.info())
 
 # TODO: * Printing shape of dataframe, it is attribute not a function, it gives us the rows and columns count (x,y)
-print("2. Dataset Shape: ",dataset.shape())
+print("3. Dataset Shape: ",dataset.shape())
 
 # TODO: * Printing describe() of dataframe, this function gives the description about the numeric columns data frame like 
 # 1. count of all non null values 
@@ -33,9 +34,15 @@ print("2. Dataset Shape: ",dataset.shape())
 # 7. 50% of total values in that column
 # 8. 75% of total values in that column
 # 9. max value of column
+print("4. Description about dataset: ", dataset.describe)
 
 
 # TODO: * Three important attibutes in pandas
 # 1. df.values
 # 2. df.columns (column index)
 # 3. df.index (row index)
+
+print("\n_____________________________________________________________________\n")
+print("1. Dataset values: ", dataset.values)
+print("2. Dataset columns: ", dataset.values)
+print("3. Dataset rows: ", dataset.values)
