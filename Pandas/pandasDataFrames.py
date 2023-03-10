@@ -16,12 +16,13 @@ print("1. Type of dataset variable is: ", type(dataset))
 # TODO: * Printing head() of dataframe, head function will give us some top rows of the dataframe
 print("2. Dataset Head: ", dataset.head())
 
-# * Printing info() of dataframe, info function will give us the information about how many columns we have, 
+# TODO * Printing info() of dataframe, info function will give us the information about how many columns we have, 
 # how many rows have null values in those columns, and,
 # what is the datatype of each column
 
 # TODO: * Printing shape of dataframe, it is attribute not a function, it gives us the rows and columns count (x,y)
 print("2. Dataset Shape: ",dataset.shape())
+
 # TODO: * Printing describe() of dataframe, this function gives the description about the numeric columns data frame like 
 # 1. count of all non null values 
 # 2. mean of numeric tables
