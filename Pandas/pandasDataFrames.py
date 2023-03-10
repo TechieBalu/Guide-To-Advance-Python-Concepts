@@ -6,3 +6,9 @@ data = {'Name': ['Alice', 'Bob', 'Charlie', 'Dave', 'Eve'],
         'Gender': ['F', 'M', 'M', 'M', 'F'],
         'City': ['New York', 'Los Angeles', 'Chicago', 'Houston', 'Miami'],
         'Salary': [50000, 60000, 70000, 80000, 90000]}
+
+
+
+# Converting a dictionary into Pandas Dataframe.
+dataset = pd.DataFrame(data)
+print("1. Type of dataset variable is: ", type(dataset))
