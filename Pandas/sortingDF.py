@@ -1,11 +1,11 @@
 import pandas as pd
 import numpy as np
 
-data = {'Name': ['Alice', 'Bob', 'Charlie', 'Dave', 'Eve'],
-        'Age': [25, 30, 35, 40, 45],
-        'Gender': ['F', 'M', 'M', 'M', 'F'],
-        'City': ['New York', 'Los Angeles', 'Chicago', 'Houston', 'Miami'],
-        'Salary': [50000, 60000, 70000, 80000, 90000]}
+data = {'Name': ['Alice', 'Bob', 'Charlie', 'Dave', 'Eve', "Mike"],
+        'Age': [25, 30, 35, 40, 45,25],
+        'Gender': ['F', 'M', 'M', 'M', 'F',"F"],
+        'City': ['New York', 'Los Angeles', 'Chicago', 'Houston', 'Miami',"America"],
+        'Salary': [50000, 60000, 70000, 80000, 90000,55000]}
 
 dataset = pd.DataFrame(data)
 
@@ -14,3 +14,7 @@ print("\nSorted dataframe: ", dataset.sort_values("Salary") )
 
 # * Sorting in descending order
 print("\nSorted dataframe: ", dataset.sort_values("Salary", ascending = False) )
+
+#* Sorting on multiple colums 
+print("\nSorted dataframe: ", dataset.sort_values(["City","Salary"], ascending = [False,True]) )
+
