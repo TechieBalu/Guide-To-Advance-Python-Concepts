@@ -36,6 +36,20 @@ print("\nMultiple Columns:\n", dataset[["Name","Gender"]])
 # chunk = dataset["Name", "Gender"]
 # print("\nAnother way:\n", dataset[chunk])
 
+# *Applying conditions on the dataframes
+# Let's say we want to get the row of dataframe where Name is "Mike"
+print("________________________________________________________________________________________")
+print("\nCondition on Columns where name is Mike\n",dataset[dataset["Name"] == "Mike"])
+
+# We can do the same for the salary
+print("________________________________________________________________________________________")
+print("\nCondition on Columns salary name is > 55000\n", dataset[dataset["Salary"] > 55000])
+
+
+
+# * We can get the boolean results on the specified conditions
+print("________________________________________________________________________________________")
+print("\nBOOLEAN RESULTS Condition on Columns salary name is > 55000\n",dataset["Salary"] > 55000)
 
 
 
