@@ -52,4 +52,9 @@ print("_________________________________________________________________________
 print("\nBOOLEAN RESULTS Condition on Columns salary name is > 55000\n",dataset["Salary"] > 55000)
 
 
+# * AND and OR operators for boolean results: 
+print("________________________________________________________________________________________")
+print("\nBOOLEAN RESULTS Condition on Columns salary name is > 55000\n",(dataset["Gender"] == "M" ) & ((dataset["Salary"] > 55000 )) )
+
+
 
