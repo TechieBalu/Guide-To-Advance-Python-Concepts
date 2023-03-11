@@ -10,11 +10,18 @@ data = {'Name': ['Alice', 'Bob', 'Charlie', 'Dave', 'Eve', "Mike"],
 dataset = pd.DataFrame(data)
 
 # *Sorting data frame
-print("\nSorted dataframe: ", dataset.sort_values("Salary") )
+print("________________________________________________________________________________________")
+print("\nSorted dataframe:\n ", dataset.sort_values("Salary") )
 
 # * Sorting in descending order
-print("\nSorted dataframe: ", dataset.sort_values("Salary", ascending = False) )
+print("________________________________________________________________________________________")
+print("\nSorted dataframe:\n ", dataset.sort_values("Salary", ascending = False) )
 
 #* Sorting on multiple colums 
-print("\nSorted dataframe: ", dataset.sort_values(["City","Salary"], ascending = [False,True]) )
+print("________________________________________________________________________________________")
+print("\nSorted dataframe:\n ", dataset.sort_values(["City","Salary"], ascending = [False,True]) )
+
+# * Taking column out of the dataframe
+print("________________________________________________________________________________________")
+print("\nColumn from the dataframe:\n ",dataset["Name"])
 
