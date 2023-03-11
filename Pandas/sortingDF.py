@@ -75,3 +75,8 @@ print("_________________________________________________________________________
 print("\Complete RESULTS for OR operation\n", dataset[(dataset["Gender"] == "M" ) | (dataset["Salary"] > 55000)] ) 
 
 
+# #* finding the element of data frame from another list
+l1 = ["Mike", "Max", "Happy", "Sandra"]
+print("\nFinding element of dataframe from another list\n", dataset[dataset["Name"].isin(l1)])
+
+
