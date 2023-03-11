@@ -53,8 +53,14 @@ print("\nBOOLEAN RESULTS Condition on Columns salary name is > 55000\n",dataset[
 
 
 # * AND and OR operators for boolean results: 
+# We need to wrap the both sides of AND and OR operator in round brackets
 print("________________________________________________________________________________________")
-print("\nBOOLEAN RESULTS Condition on Columns salary name is > 55000\n",(dataset["Gender"] == "M" ) & ((dataset["Salary"] > 55000 )) )
+print("\nBOOLEAN RESULTS for AND operation\n",(dataset["Gender"] == "M" ) & ((dataset["Salary"] > 55000 )) )
 
+
+# * AND and OR operators for boolean results: 
+# We need to wrap the both sides of AND and OR operator in round brackets
+print("________________________________________________________________________________________")
+print("\nBOOLEAN RESULTS for OR operation\n",(dataset["Gender"] == "M" ) | ((dataset["Salary"] > 55000 )) )
 
 
