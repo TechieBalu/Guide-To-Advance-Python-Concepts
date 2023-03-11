@@ -67,6 +67,11 @@ print("\nBOOLEAN RESULTS for OR operation\n",(dataset["Gender"] == "M" ) | (data
 # * AND operators for complete results: 
 # We need to wrap the both sides of AND and OR operator in round brackets
 print("________________________________________________________________________________________")
+print("\Complete RESULTS for AND operation\n", dataset[(dataset["Gender"] == "M" ) & (dataset["Salary"] > 55000)] ) 
+
+# * OR operators for complete results: 
+# We need to wrap the both sides of AND and OR operator in round brackets
+print("________________________________________________________________________________________")
 print("\Complete RESULTS for OR operation\n", dataset[(dataset["Gender"] == "M" ) | (dataset["Salary"] > 55000)] ) 
 
 
