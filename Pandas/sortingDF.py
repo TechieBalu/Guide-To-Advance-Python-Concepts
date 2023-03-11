@@ -75,8 +75,29 @@ print("_________________________________________________________________________
 print("\Complete RESULTS for OR operation\n", dataset[(dataset["Gender"] == "M" ) | (dataset["Salary"] > 55000)] ) 
 
 
-# #* finding the element of data frame from another list
+# #* isin() , finding the element of data frame from another list
+print("________________________________________________________________________________________")
 l1 = ["Mike", "Max", "Happy", "Sandra"]
 print("\nFinding element of dataframe from another list\n", dataset[dataset["Name"].isin(l1)])
+
+
+# #* isin() , finding Boolean results for the element of data frame from another list
+print("________________________________________________________________________________________")
+print("\nFinding boolean results element of dataframe from another list\n", dataset["Name"].isin(l1))
+
+
+
+# * Adding extra column in dataframe
+print("________________________________________________________________________________________")
+dataset["New Column"] = [1,2,3,4,5,6]
+print("\nAdditiong of 'New Column' in the dataframe\n",dataset)
+
+
+# * Apply mathematical operations on on columns and store them in new column 
+# we will add the salary and age column and store in the new column named as "Salary+Age"
+dataset["Salary+Age"] = dataset["Salary"] + dataset["Age"]
+print("________________________________________________________________________________________")
+print("\nSalary + Age column added\n", dataset)
+
 
 
