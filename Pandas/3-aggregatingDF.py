@@ -70,3 +70,10 @@ print("\nCumulative Max of Salary is:\n", x)
 
 
 # TODO: ________________________________________________ agg() FUNCTION: _______________________________________________________________
+# The aggregate, or agg, method allows you to compute custom summary statistics. 
+# Here, we create a function called pct30 that computes the thirtieth percentile of a DataFrame column
+
+def pct30(column):
+    return column.quantile(0.3)
+
+x = dataset["Salart"].agg(pct30)
