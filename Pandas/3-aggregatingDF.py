@@ -76,4 +76,9 @@ print("\nCumulative Max of Salary is:\n", x)
 def pct30(column):
     return column.quantile(0.3)
 
-x = dataset["Salart"].agg(pct30)
+x = dataset["Salary"].agg(pct30)
+print("\n Agg() function on salary column:\n",x)
+# agg() function can also be use for multiple columns
+x = dataset[["Age","Salary"]].agg(pct30)
+print("\n Agg() function on multiple columns age and salary:\n",x)
+
