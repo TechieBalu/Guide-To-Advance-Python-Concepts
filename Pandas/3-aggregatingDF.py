@@ -1,15 +1,16 @@
 import pandas as pd
+import numpy as np
 
 data = {"date": ["2018-01-01", "2018-02-01", "2019-01-01", "2019-02-01"],
         "temperature": [20, 25, 18, 22]}
 df = pd.DataFrame(data)
 
 
-data2 = {'Name': ['Alice', 'Bob', 'Charlie', 'Dave', 'Alice', "Mike","Alice"],
-        'Age': [25, 30, 35, 40, 45,25,30],
-        'Gender': ['F', 'M', 'M', 'M', 'F',"F","M"],
-        'City': ['New York', 'Los Angeles', 'Chicago', 'Houston', 'Miami',"America","Chicago"],
-        'Salary': [60000, 60000, 70000, 80000, 90000,55000,60000]}
+data2 = {'Name': ['Alice', 'Bob', 'Charlie', 'Dave', 'Alice', "Mike","Alice", "Alice"],
+        'Age': [25, 30, 35, 40, 45,25,30,90],
+        'Gender': ['F', 'M', 'M', 'M', 'F',"F","M","F"],
+        'City': ['New York', 'Los Angeles', 'Chicago', 'Houston', 'Miami',"America","Chicago","Lahore"],
+        'Salary': [60000, 60000, 70000, 80000, 90000,60000,60000,60000]}
 
 dataset = pd.DataFrame(data2)
 
@@ -123,7 +124,55 @@ print("\nCount of Name using value_conuts()\n",x)
 x = dataset["Name"].value_counts(sort=True)
 print("\nSorted values of Count of Name using value_conuts()\n",x)
 
-# The normalize argument of value_counts() function can be used to turn the counts into 
+#* The normalize argument of value_counts() function can be used to turn the counts into 
 # proportions of the total. 25% of the dogs that go to this vet are Labradors.
 x = dataset["Name"].value_counts(sort=True,normalize=True)
 print("\nNormalized and Sorted values of Count of Name using value_conuts()\n",x)
+
+
+
+# _____________________________________________________________________________________________________________
+# * While computing summary statistics of entire columns may be useful, 
+# you can gain many insights from summaries of individual groups. 
+# For example, does one color of dog weigh more than another on average? Are female dogs taller than males
+
+# Pandas groupby is used for grouping the data according to the categories and 
+# apply a function to the categories. It also helps to aggregate data efficiently
+
+# if we do this, pandas will return the group by object
+x = dataset.groupby("Name")["Salary"].mean()
+print("\nGroupby function of pandas, applied on the Name and compute the 'mean' of the salary", x)
+# What it does is, It will create a group of "Alice" because "Alice" occurs 3 times in our dataframe 
+# Takeout the salaries of "Alice" and apply mean on her salary. 
+
+#* groupby on multiple columns:
+print(dataset)
+
+# *IMPORTANT group by also removes the 
+x = dataset.groupby(["Name","Age"])
+print(x.first)
+# ! Still confused why first() method is working here
+# When having a DataFrame with dates as index, this function can select the first few rows based on a date offset
+
+
+# We can also use the agg() function to apply multiple functions on the groupedby data 
+x = dataset.groupby("Name")["Salary"].agg([min,max,sum])
+print("\nApplied multiple functions in agg() method on the dataframe after groupping by\n", x)
+
+
+# * Grouping by multiple columns 
+x = dataset.groupby(["Gender","Name"])["Salary"].mean()
+print("\nGroupping by multiple columns and calculate mean on salary\n", x)
+
+x = dataset.groupby(["Age","Name"])["Salary"].mean()
+print("\nGroupping by multiple columns, AGE AND NAME\n", x)
+
+
+# *Grouping by multiple coulmns and apply multiple functions using agg()
+x = dataset.groupby(["Gender","Name"])["Salary"].agg([min,max,sum])
+print("\nGroupping by multiple columns and calculate min max and sum using agg()\n", x)
+# *IMPORTANT: if we are doing groupby on multiple columns and 
+# we have a record in the dataframe where those multiple column(on which we are applying the groupinhg)
+# are exactly same, Pandas will return us 1 entry of it instead of multiple entries
+
+
