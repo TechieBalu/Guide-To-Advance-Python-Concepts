@@ -111,4 +111,19 @@ x = dataset[["Name","Salary"]].drop_duplicates()
 print("\n 2nd syntax od dropping multiple columns that are duplicates, and it will return only the those columns that we have mentioned for the dropping duplicates:\n",x)
 
 # ____________________________________________________________________________________________________________
-# *
+# *Counting Values in dataframe
+# value_counts() function will count the values appearing how many times in the column we mentioned 
+# e.g. we have 3 Alice names in our dataframe and we will apply value_counts() function to check the count of each name
+
+x = dataset["Name"].value_counts()
+print("\nCount of Name using value_conuts()\n",x)
+
+# we can also sort the results of value counts
+
+x = dataset["Name"].value_counts(sort=True)
+print("\nSorted values of Count of Name using value_conuts()\n",x)
+
+# The normalize argument of value_counts() function can be used to turn the counts into 
+# proportions of the total. 25% of the dogs that go to this vet are Labradors.
+x = dataset["Name"].value_counts(sort=True,normalize=True)
+print("\nNormalized and Sorted values of Count of Name using value_conuts()\n",x)
