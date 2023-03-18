@@ -5,11 +5,11 @@ data = {"date": ["2018-01-01", "2018-02-01", "2019-01-01", "2019-02-01"],
 df = pd.DataFrame(data)
 
 
-data2 = {'Name': ['Alice', 'Bob', 'Charlie', 'Dave', 'Eve', "Mike"],
-        'Age': [25, 30, 35, 40, 45,25],
-        'Gender': ['F', 'M', 'M', 'M', 'F',"F"],
-        'City': ['New York', 'Los Angeles', 'Chicago', 'Houston', 'Miami',"America"],
-        'Salary': [50000, 60000, 70000, 80000, 90000,55000]}
+data2 = {'Name': ['Alice', 'Bob', 'Charlie', 'Dave', 'Alice', "Mike","Alice"],
+        'Age': [25, 30, 35, 40, 45,25,30],
+        'Gender': ['F', 'M', 'M', 'M', 'F',"F","M"],
+        'City': ['New York', 'Los Angeles', 'Chicago', 'Houston', 'Miami',"America","Chicago"],
+        'Salary': [60000, 60000, 70000, 80000, 90000,55000,60000]}
 
 dataset = pd.DataFrame(data2)
 
@@ -76,9 +76,39 @@ print("\nCumulative Max of Salary is:\n", x)
 def pct30(column):
     return column.quantile(0.3)
 
+def pct40(column):
+    return column.quantile(0.4)
+
 x = dataset["Salary"].agg(pct30)
 print("\n Agg() function on salary column:\n",x)
 # agg() function can also be use for multiple columns
 x = dataset[["Age","Salary"]].agg(pct30)
 print("\n Agg() function on multiple columns age and salary:\n",x)
 
+# We can pass multiple functions to agg function as well 
+x = dataset["Salary"].agg([pct40,pct30])
+print("\n Agg() function can accept multiple functions: \n",x)
+
+# TODO: need to be check
+# ! agg function cannot accept multiple functions with mulitple columns 
+
+
+
+# *Dropping duplicates: 
+x = dataset["Salary"].drop_duplicates()
+print("\n Dropped duplicate value of 60000 from the Salary Column:\n",x)
+
+# * 2nd Syntax of dropping duplicates: 
+# This syntax will return the whole dataset
+print("\n 2nd syntax for Dropped duplicate value of 60000 from the Salary Column:\n", dataset.drop_duplicates(subset="Salary"))
+# As you can see from the output that, There are 3 girls named with alice SO,
+# We can also apply the dropduplicates on multiple columns
+# Below syntax will drop the duplicat only where Name and Salary match in same record
+# If name is Alice and Salary is 50000, and Name is Alice and Salary 60000, These are not duplicates 
+# They have difference values for columns matched in the dropduplicates column
+print("\n dropping duplicate from multiple columns Salary and Name:\n", dataset.drop_duplicates(subset=["Name","Salary"]))
+x = dataset[["Name","Salary"]].drop_duplicates()
+print("\n 2nd syntax od dropping multiple columns that are duplicates, and it will return only the those columns that we have mentioned for the dropping duplicates:\n",x)
+
+# ____________________________________________________________________________________________________________
+# *
