@@ -10,7 +10,7 @@ data2 = {'Name': ['Alice', 'Bob', 'Charlie', 'Dave', 'Alice', "Mike","Alice", "A
         'Age': [25, 30, 35, 40, 45,25,30,90],
         'Gender': ['F', 'M', 'M', 'M', 'F',"F","M","F"],
         'City': ['New York', 'Los Angeles', 'Chicago', 'Houston', 'Miami',"America","Chicago","Lahore"],
-        'Salary': [60000, 60000, 70000, 80000, 90000,60000,60000,60000]}
+        'Salary': [60000, 60000, 70000, 80000, 95000,60000,60000,60000]}
 
 dataset = pd.DataFrame(data2)
 
@@ -173,6 +173,42 @@ x = dataset.groupby(["Gender","Name"])["Salary"].agg([min,max,sum])
 print("\nGroupping by multiple columns and calculate min max and sum using agg()\n", x)
 # *IMPORTANT: if we are doing groupby on multiple columns and 
 # we have a record in the dataframe where those multiple column(on which we are applying the groupinhg)
-# are exactly same, Pandas will return us 1 entry of it instead of multiple entries
+# are exactly same, Pandas will return us 1 entry of it instead of multiple entries, pandas is not droping those records, 
+# but it applies summarize function on every record and returns just 1 record of it
 
 
+# ___________________________________________________________________________________________________
+
+# * Pivot_Table function: 
+# the things we did with the groupby function we can do it through the pivot function as well. 
+# BY default pivot_table() function applies the mean function but we can change it using the aggfunc argument
+
+print("\n Application of pivot_table() function on index Name and value Gender\n",dataset.pivot_table(values="Salary", index="Name"))
+
+
+print("\npivot_table() on on multiple columns to group\n",dataset.pivot_table(values="Salary", index=["Name","Gender"]))
+
+
+print("\npivot_table() on on multiple indexes (summarize tables) to group\n",dataset.pivot_table(values=["Salary","Age"], index=["Name","Gender"]))
+
+print("\npivot_table() on on multiple indexes (summarize tables) to group\n",dataset.pivot_table(values=["Salary","Age"], index=["Name","Gender"]))
+
+
+# Using column parameter will return dataframe that have all the columns of the sequence that we passed in the columns paramter
+# and give nan value if value doesnot exist
+# ! NOT UNDERSTOOD
+
+print("\npivot_table() on on multiple indexes (summarize tables) to group\n",dataset.pivot_table(values="Salary", index="Name",columns=["Age","City"]))
+
+# we can fill the value using the fill_value parameter to replace the Nan with some value
+print("\npivot_table() filled missing values with 0\n",dataset.pivot_table(values="Salary", index="Name",columns=["Age","City"], fill_value=0))
+
+# margin parameter set to true will result in additional column "All" and row at the last that will show the mean
+# of the whole row and column
+print("\npivot_table() filled missing values with 0\n",dataset.pivot_table(values="Salary", index="Name",columns=["Age","City"], fill_value=0, margins=True))
+
+# Application of aggfunc
+print("\npivot_table() aggfunc parameter to apply median\n",dataset.pivot_table(values=["Salary","Age"], index=["Name","Gender"], aggfunc=np.median))
+
+# apply multiple aggregation function by passing the list of numpy function to the aggfunc parameter
+print("\npivot_table() aggfunc parameter to apply median and mean\n",dataset.pivot_table(values=["Salary","Age"], index=["Name","Gender"], aggfunc=[np.median, np.mean]))
