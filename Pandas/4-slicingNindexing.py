@@ -28,7 +28,7 @@ print("\n2-Apply loc attribute:\n" , x.loc["Alice"])
 #* Resetting indexes
 # We can reset the index by appling the rest_index() method 
 x = x.reset_index()
-print("\n3-Resetting the index:\n", x.reset_index())
+print("\n3-Resetting the index:\n", x)
 
 print("\n4-Printing whole dataframe after resetting the index:\n",x)
 
@@ -67,3 +67,36 @@ print("\n10-Multi indexing, and subsetting on both levels, Name and Salary:\n", 
 
 
 
+#* Sorting Indexes: 
+# we can sort the indexes using the sort_index() function
+# let's first reset the indexing and apply single index 
+x = x.reset_index()
+
+# Reindexing 
+x = dataset.set_index(keys="Name")
+print("\n11-Sorting the indexed column:\n", x.sort_index())
+
+print("\n12-Sorting the indexed column in descinding order:\n", x.sort_index(ascending=False))
+
+
+# Sorting on multi indexed or Hierarchical indexing: 
+
+# resetting the index
+x = x.reset_index()
+
+# reindexing 
+x = dataset.set_index(keys=["Name","Salary"])
+
+print("\n13-Multiindex sorting:\n", x.sort_index(ascending=[False,True]))
+# in this sorting pandas execute from lower to upper level, from Salary to the Name 
+# Pandas first sort the Salary into Ascending order , and Than sort the Name in Descending order
+
+
+
+# Mentioning levels: 
+# by using the level parameter, we can define the levels on which the sorting take place 
+# In line below, we have set level 1 on Salary and level 2 on Name 
+# Pandas sort by lower to upper level 
+# First Pandas will sort Name in descending order and than
+# sort he Salary in ascending order
+print("\n13-Multiindex sorting:\n", x.sort_index(level=["Salary", "Name"]   , ascending=[False,True]))
