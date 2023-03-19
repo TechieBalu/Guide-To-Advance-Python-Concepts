@@ -167,3 +167,21 @@ print(x)
 print("\n22-Slicing the multiindexed in correct way:\n", x.loc[(30,"Houston"):(90,"America"),"Name":"Salary"])
 
 
+
+# Resetting the indexes
+x = x.reset_index()
+
+# Indexed as date
+x = x.set_index(keys="Date")
+# ! not understood, require time to understand this slicing
+print("\n23-Slicing on Date:\n", x.loc["2016-12-08":"2020-05-17"])
+
+# This line is  giving error
+# ! need to check
+# print("\n24-Slicing on Date:\n", x.loc["2014":"2020"])
+
+
+
+
+
+
