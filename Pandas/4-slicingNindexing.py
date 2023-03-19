@@ -18,13 +18,14 @@ dataset = pd.DataFrame(data)
 x = dataset.set_index(keys="Name")
 print("\n1-Setting index of dataframe as Name:\n",x)
 # Now we have set the index of dataframe as Name and whenever we apply the .loc attribute, it will be applied on the 
-# Name column 
+# Name column, Important thing is, Indexed column is always left aligned when we print the dataframe and 
+# non-indexed columns are right aligned
 
 print("\n2-Apply loc attribute:\n" , x.loc["Alice"])
 # I passed the "Alice" to the loc, it will show all the records in which the Name is "Alice" but
 # if I give it "Houston" from the City column, Pandas will throw an  error that this KeyError : "Houston"
 
-
+#* Resetting indexes
 # We can reset the index by appling the rest_index() method 
 x = x.reset_index()
 print("\n3-Resetting the index:\n", x.reset_index())
@@ -36,3 +37,33 @@ x = dataset.set_index(keys="Name")
 
 # we can alos drop the indexed column using the reset_index() function 
 print("\n5-Dropping indexed column:\n", x.reset_index(drop=True))
+
+# using indexing, we can simplify some tasks e.g.
+# to get the values from the dataframe we  did something like this: 
+print("\n6-Getting values from the dataframe in previous way:\n", dataset[dataset["Name"].isin(["Alice"])])
+
+# we can do that task if the Name column is indexed in our dataframe by using the following syntax:
+print("\n7-Getting value from the indexed column:\n", x.loc["Alice"])
+
+# values in the index donot need to be unique, we can pass those columns as well that have duplicate values like "Salary" in our DF
+x = dataset.set_index(keys="Salary")
+print("\n8-Duplicated values column used as Index:\n", x)
+# altough Name column alreadu has duplicated values like "Alice"
+
+
+# * Multi Level Indexing OR Hierarchical Indexing: 
+# we can do it by passing the list of coulmns to the "key" argument of set_index() function
+
+x = dataset.set_index(keys=["Name", "Salary"])
+# "Name" will be the Level1 and "Salary" will be considered as Level2 by Pandas
+# "Salary" is nested inside the "Name" index 
+
+# we can find Name "Alice" and "Mike" from the indexed column in multiindexing like this: 
+print("\n9-Multi indexing, and subsetting on multiple values:\n", x.loc[["Alice","Mike"]])
+
+
+# we can give the values for Both levels , Name and Salary in tuple
+print("\n10-Multi indexing, and subsetting on both levels, Name and Salary:\n", x.loc[[("Alice",95000),("Mike",60000)]])
+
+
+
