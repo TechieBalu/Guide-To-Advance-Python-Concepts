@@ -2,13 +2,17 @@ import numpy as np
 import pandas as pd
 
 data = {'Name': ['Alice', 'Bob', 'Charlie', 'Dave', 'Alice', "Mike","Alice", "Alice"],
-        'Age': [25, 30, 35, 40, 45,25,30,90],
+        'Age': [25, 30, 35, 40, 45,26,32,90],
         'Gender': ['F', 'M', 'M', 'M', 'F',"F","M","F"],
         'City': ['New York', 'Los Angeles', 'Chicago', 'Houston', 'Miami',"America","Chicago","Lahore"],
-        'Salary': [60000, 60000, 70000, 80000, 95000,60000,60000,60000]}
+        'Salary': [60000, 60000, 70000, 80000, 95000,60000,60000,60000],
+        "Date":["2014-04-31","2015-08-15","2013-09-23","2016-12-08","2022-11-11","1998-10-10","2002-05-25","2020-05-17"]}
 
 dataset = pd.DataFrame(data)
 
+
+
+#* __________________________________________SORTING_________________________________________________
 
 # * Indexing of dataframe using the set_index method:
 # You can move a column from the body of the DataFrame to the index. This is called "setting an index," 
@@ -99,4 +103,67 @@ print("\n13-Multiindex sorting:\n", x.sort_index(ascending=[False,True]))
 # Pandas sort by lower to upper level 
 # First Pandas will sort Name in descending order and than
 # sort he Salary in ascending order
-print("\n13-Multiindex sorting:\n", x.sort_index(level=["Salary", "Name"]   , ascending=[False,True]))
+print("\n14-Multiindex sorting:\n", x.sort_index(level=["Salary", "Name"]   , ascending=[False,True]))
+
+
+
+
+
+# * ______________________________________________ SLICING ______________________________________________________________
+
+# Resetting the indexes: 
+x = x.reset_index()
+
+#* Use of iloc operator in pandas
+# it is used to extract columns and rows on the basis of indexes of columns and rows 
+print("\n15-First two rows of First 3 columns:\n", x.iloc[0:2,0:3])
+
+print("\n16-First two rows of First 3 columns other syntax:\n", x.iloc[:2,:3])
+
+
+# if the indexes are set we can do slicing using the loc operator
+x = dataset.set_index(keys="Name")
+
+# Below line will produce error, because loc slicing does not work on the columns that have duplicated values 
+# So I am commenting this line 
+# print("\n17-Slicing using loc operator on indexed dataframe:\n", x.loc["Alice":"Mike"])
+
+
+# we can do it by using the City Column which is unique
+x = dataset.set_index(keys="City")
+print("\n17-Slicing using loc operator on indexed dataframe:\n", x.loc["Houston":"America"])
+# In this slicing, America will be included, it will not be excluded
+
+x = x.reset_index()
+x = dataset.set_index(keys=["Age","City"]).sort_index()
+#* IMPORTANT in slicing over the multi indexed DF using loc operator
+# if we apply loc operator on the inner level of indexed columns ,
+# Pandas will not throw any error, rather it will give only empty data frame 
+# lets try
+
+print("\n18- Slicing on multiindexed column of inner level:\n", x.loc["Houston":"America"]) 
+
+
+# but we can apply the loc operator slicing on the upper level which is "Age"
+print("\n19-Slicing on upper level of multiindexed DF:\n",x.loc[30:90])
+
+
+# Slicing inner levels correctly, we give tuple , with colon
+print("\n20-Slicing the multiindexed in correct way:\n", x.loc[(30,"Houston"):(90,"America")])
+
+
+#* Slicing on coloumns using the loc operator
+# Important thing to remeber, slicing on Indexed column and Slicing on non-indexed columns is different
+# we cannot merge indexed column with the non-indexed column during column slicing like below
+# im commenting this line, because it will generate error
+
+# print("\n20-Slicing on coloumns using the loc operator\n", x.loc[:,"Name":"City"])
+
+
+print("\n21-Slicing on coloumns using the loc operator\n", x.loc[:,"Name":"Salary"])
+
+print(x)
+# Getting specific columns from the slicing all levels of indexing
+print("\n22-Slicing the multiindexed in correct way:\n", x.loc[(30,"Houston"):(90,"America"),"Name":"Salary"])
+
+
