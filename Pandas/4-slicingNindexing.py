@@ -164,6 +164,9 @@ print("\n21-Slicing on coloumns using the loc operator\n", x.loc[:,"Name":"Salar
 
 print(x)
 # Getting specific columns from the slicing all levels of indexing
+# *SLICE TWICE
+# 1- Slice Age from 30 to 90 with City from Houston to America
+# 2- Slice Column of Name and Salary only
 print("\n22-Slicing the multiindexed in correct way:\n", x.loc[(30,"Houston"):(90,"America"),"Name":"Salary"])
 
 

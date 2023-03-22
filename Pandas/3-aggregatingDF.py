@@ -198,7 +198,11 @@ print("\npivot_table() on on multiple indexes (summarize tables) to group\n",dat
 # and give nan value if value doesnot exist
 # ! NOT UNDERSTOOD
 
-print("\npivot_table() on on multiple indexes (summarize tables) to group\n",dataset.pivot_table(values="Salary", index="Name",columns=["Age","City"]))
+# *STOOD STOOD , I GOT IT, Here's the explanation:
+# index column is used to group by and display in rows and 
+# column argument is used to groupby and display in columns
+
+print("\npivot_table() on multiple indexes (summarize tables) to group by using columns argument\n",dataset.pivot_table(values="Salary", index="Name",columns=["Age","City"]))
 
 # we can fill the value using the fill_value parameter to replace the Nan with some value
 print("\npivot_table() filled missing values with 0\n",dataset.pivot_table(values="Salary", index="Name",columns=["Age","City"], fill_value=0))
