@@ -39,4 +39,5 @@ print(dataset)
 # That makes it a good storage format if you need to share your data 
 # with other people who may be using different tools than you.
 
-# pd.read_csv() this function is 
+# pd.read_csv() this function is used to read the data from the csv
+# pd.to_csv() this function is used to write data into the csv
