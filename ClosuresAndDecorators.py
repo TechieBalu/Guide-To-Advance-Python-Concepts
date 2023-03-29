@@ -13,7 +13,7 @@ def deco(func):
     func(x)
     return 7
 
-@deco()
+# @deco()
 def myfunc(x):
     z = x+30
     print(z)
@@ -71,6 +71,6 @@ def decor(func):
 def num():
     return 10
  
-print(num())
+print("Last output",num())
 
 # it is same as decor1(decor(num))
