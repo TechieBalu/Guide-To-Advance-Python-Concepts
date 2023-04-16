@@ -8,11 +8,11 @@ We will talk about the following topics:
 - Iterators vs Generators 	:white_check_mark:
 - String Formattings  :white_check_mark:
 - DateTime conversions 
-- Magic or Dunder Functions in Python (Read `.doc` for this article)
+- Magic or Dunder Functions in Python (Read `.doc` for this article) :white_check_mark:
 - Lambda Function 	:white_check_mark:
 - Map Function 	:white_check_mark:
 - Filter Function 	:white_check_mark:
-- HashMaps in Python
+- HashMaps in Python (Datastructures)
 - List vs Tuple vs Dictionary vs Sets vs Frozen sets
 - Argparsers 
 - Hashing techniques in Python
