@@ -12,7 +12,7 @@ We will talk about the following topics:
 - Lambda Function 	:white_check_mark:
 - Map Function 	:white_check_mark:
 - Filter Function 	:white_check_mark:
-- HashMaps in Python
+- HashMaps in Python (Datastructures)
 - List vs Tuple vs Dictionary vs Sets vs Frozen sets
 - Argparsers 
 - Hashing techniques in Python
