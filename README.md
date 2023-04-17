@@ -14,6 +14,7 @@ We will talk about the following topics:
 - Filter Function 	:white_check_mark:
 - HashMaps in Python (Datastructures)
 - List vs Tuple vs Dictionary vs Sets vs Frozen sets
+- List comprehension
 - Argparsers 
 - Hashing techniques in Python
 - Itertools in Python
@@ -29,6 +30,7 @@ We will talk about the following topics:
 - Parallelization in Python
 - Regular Expressions in Python 
 - Logging in Python 
+- Performance measurements
 - SECRETS OF PYTHON
 - Zen of Python
 
