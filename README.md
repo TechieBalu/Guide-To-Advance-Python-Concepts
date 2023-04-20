@@ -16,6 +16,7 @@ We will talk about the following topics:
 - List vs Tuple vs Dictionary vs Sets vs Frozen sets
 - List comprehension
 - Packing , Unpacking of arguments
+- Recurrsion
 - Argparsers 
 - Hashing techniques in Python
 - Itertools in Python
