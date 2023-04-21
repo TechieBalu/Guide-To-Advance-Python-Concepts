@@ -13,9 +13,10 @@ We will talk about the following topics:
 - Map Function 	:white_check_mark:
 - Filter Function 	:white_check_mark:
 - HashMaps in Python (Datastructures)
-- List vs Tuple vs Dictionary vs Sets vs Frozen sets
+- List vs Tuple vs Dictionary vs Sets vs Frozen sets :hourglass_flowing_sand:
 - List comprehension
 - Packing , Unpacking of arguments
+- Recurrsion
 - Argparsers 
 - Hashing techniques in Python
 - Itertools in Python
