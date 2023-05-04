@@ -19,7 +19,15 @@ def success(score):
 
 @app.route("/fail/<int:score>")
 def fail(score):
-    return "This is pass" + str(score)
+    return "This is fail" + str(score)
+
+
+@app.route("/result/<int:score>")
+def result(score):
+    if score < 50: 
+        return "This is fail " + str(score)
+    else:
+        return "This is pass " +str(score)
 
 if __name__ == "__main__":
     app.run(debug=True)
