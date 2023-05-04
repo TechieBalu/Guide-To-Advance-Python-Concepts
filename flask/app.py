@@ -1,4 +1,4 @@
-from flask import Flask
+from flask import Flask,redirect,url_for
 
 app = Flask(__name__)
 
@@ -25,9 +25,13 @@ def fail(score):
 @app.route("/result/<int:score>")
 def result(score):
     if score < 50: 
-        return "This is fail " + str(score)
+        result = "fail"
+        # return redirect(url_for)
     else:
-        return "This is pass " +str(score)
+        result = "success"
+        # return "This is pass " +str(score)
+    
+    return redirect(url_for(result,score=score))
 
 if __name__ == "__main__":
     app.run(debug=True)
