@@ -1,5 +1,5 @@
 from flask import Flask,redirect,url_for
-
+from markupsafe import escape
 app = Flask(__name__)
 
 @app.route("/")
@@ -19,7 +19,7 @@ def success(score):
 
 @app.route("/fail/<int:score>")
 def fail(score):
-    return "This is fail" + str(score)
+    return "This is fail" + escape(str(score))
 
 
 @app.route("/result/<int:score>")
