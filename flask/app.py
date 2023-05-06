@@ -52,8 +52,18 @@ def query_example():
 
 
 # Now let's create a URL in which framework field is missing
-# ! It will generate error and stop the server 
+# ! It will generate error and give 404 Error
 # ! http://127.0.0.1:5000/query-example-multiple-variables?language=Python&website=DigitalOcean
+'''
+You will need to program the part that handles the query arguments. This code will read in the language key by using either 
+request.args.get('language') or request.args['language'].
+
+By calling request.args.get('language'), the application will continue to run if the language key doesn’t exist in the URL. In that case, the result of the method will be None.
+
+By calling request.args['language'], the app will return a 400 error if the language key doesn’t exist in the URL.
+
+When dealing with query strings, it is recommended to use request.args.get() to prevent the app from failing.
+'''
 @app.route('/query-example-multiple-variables')
 def query_example_multiple_variables():
     language = request.args.get('language')
