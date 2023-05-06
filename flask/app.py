@@ -46,6 +46,14 @@ def query_example():
     return '''<h1>The language value is: {}</h1>'''.format(language)
 
 
+# http://127.0.0.1:5000/query-example-multiple-variables?language=Python&framework=Flask
+# http://127.0.0.1:5000/query-example-multiple-variables?language=Python&framework=Flask&website=DigitalOcean
+# http://127.0.0.1:5000/query-example-multiple-variables?framework=Flask&website=DigitalOcean
+
+
+# Now let's create a URL in which framework field is missing
+# ! It will generate error and stop the server 
+# ! http://127.0.0.1:5000/query-example-multiple-variables?language=Python&website=DigitalOcean
 @app.route('/query-example-multiple-variables')
 def query_example_multiple_variables():
     language = request.args.get('language')
