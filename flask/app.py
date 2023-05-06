@@ -47,7 +47,7 @@ def query_example():
 
 
 @app.route('/query-example-multiple-variables')
-def query_example():
+def query_example_multiple_variables():
     language = request.args.get('language')
 
     framework = request.args['framework']
