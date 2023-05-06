@@ -33,5 +33,21 @@ def result(score):
     
     return redirect(url_for(result,score=score))
 
+
+
+#* Routes for Digital Ocean Course:
+
+@app.route('/query-example')
+def query_example():
+    return 'Query String Example'
+
+@app.route('/form-example')
+def form_example():
+    return 'Form Data Example'
+
+@app.route('/json-example')
+def json_example():
+    return 'JSON Object Example'
+
 if __name__ == "__main__":
     app.run(debug=True)
