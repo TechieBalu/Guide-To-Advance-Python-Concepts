@@ -1,5 +1,7 @@
-from flask import Flask,redirect,url_for
+from flask import Flask,redirect,url_for,request
 from markupsafe import escape
+
+
 app = Flask(__name__)
 
 @app.route("/")
@@ -39,7 +41,17 @@ def result(score):
 
 @app.route('/query-example')
 def query_example():
-    return 'Query String Example'
+    language = request.args.get('language')
+
+    return '''<h1>The language value is: {}</h1>'''.format(language)
+
+
+# @app.route('/query-example-multiple-keyvalue-pairs')
+# def query_example():
+#     language = request.args.get('language')
+
+#     return '''<h1>The language value is: {}</h1>'''.format(language)
+    
 
 @app.route('/form-example')
 def form_example():
