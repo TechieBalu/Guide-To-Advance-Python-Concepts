@@ -129,6 +129,21 @@ def form_example2():
                <input type="submit" value="Submit">
            </form>'''
 
+
+
+
+
+
+@app.route('/process-json-data', methods=['GET', 'POST'])
+def process_data():
+    # handle the POST request
+    if request.method == 'POST':
+        data = request.get_json()
+        value1 = data.get('value1')
+        value2 = data.get('value2')
+        print("Value 1 is: {}\nValue 2 is: {}".format(value1,value2))
+        return "data processed"
+
 @app.route('/json-example')
 def json_example():
     return 'JSON Object Example'
