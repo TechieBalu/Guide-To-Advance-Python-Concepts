@@ -88,6 +88,7 @@ To demonstrate this, modify the form-example route in app.py to accept both GET 
 '''
 
 # allow both GET and POST requests
+# http://127.0.0.1:5000/form-example
 @app.route('/form-example', methods=['GET', 'POST'])
 def form_example():
     return '''
@@ -96,6 +97,37 @@ def form_example():
                   <div><label>Framework: <input type="text" name="framework"></label></div>
                   <input type="submit" value="Submit">
               </form>'''
+
+'''
+
+The browser should display a form with two input fields - one for language and one for framework - and a submit button.
+
+The most important thing to know about this form is that it performs a POST request to the same route that generated the form. 
+The keys that will be read in the app all come from the name attributes on our form inputs. In this case, language and 
+framework are the names of the inputs, so you will have access to those in the app.
+
+Inside the view function, you will need to check if the request method is GET or POST. If it is a GET request, 
+you can display the form. Otherwise, if it is a POST request, then you will want to process the incoming data.
+'''
+# allow both GET and POST requests
+# http://127.0.0.1:5000/form-example2?language=Python&framework=flask
+@app.route('/form-example2', methods=['GET', 'POST'])
+def form_example2():
+    # handle the POST request
+    if request.method == 'POST':
+        language = request.form.get('language')
+        framework = request.form.get('framework')
+        return '''
+                  <h1>The language value is: {}</h1>
+                  <h1>The framework value is: {}</h1>'''.format(language, framework)
+
+    # otherwise handle the GET request
+    return '''
+           <form method="POST">
+               <div><label>Language: <input type="text" name="language"></label></div>
+               <div><label>Framework: <input type="text" name="framework"></label></div>
+               <input type="submit" value="Submit">
+           </form>'''
 
 @app.route('/json-example')
 def json_example():
