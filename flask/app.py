@@ -46,14 +46,6 @@ def query_example():
     return '''<h1>The language value is: {}</h1>'''.format(language)
 
 
-# http://127.0.0.1:5000/query-example-multiple-variables?language=Python&framework=Flask
-# http://127.0.0.1:5000/query-example-multiple-variables?language=Python&framework=Flask&website=DigitalOcean
-# http://127.0.0.1:5000/query-example-multiple-variables?framework=Flask&website=DigitalOcean
-
-
-# Now let's create a URL in which framework field is missing
-# ! It will generate error and give 404 Error
-# ! http://127.0.0.1:5000/query-example-multiple-variables?language=Python&website=DigitalOcean
 '''
 You will need to program the part that handles the query arguments. This code will read in the language key by using either 
 request.args.get('language') or request.args['language'].
@@ -64,6 +56,16 @@ By calling request.args['language'], the app will return a 400 error if the lang
 
 When dealing with query strings, it is recommended to use request.args.get() to prevent the app from failing.
 '''
+
+
+# http://127.0.0.1:5000/query-example-multiple-variables?language=Python&framework=Flask
+# http://127.0.0.1:5000/query-example-multiple-variables?language=Python&framework=Flask&website=DigitalOcean
+# http://127.0.0.1:5000/query-example-multiple-variables?framework=Flask&website=DigitalOcean
+
+
+# Now let's create a URL in which framework field is missing
+# ! It will generate error and give 404 Error
+# ! http://127.0.0.1:5000/query-example-multiple-variables?language=Python&website=DigitalOcean
 @app.route('/query-example-multiple-variables')
 def query_example_multiple_variables():
     language = request.args.get('language')
@@ -79,9 +81,21 @@ def query_example_multiple_variables():
               <h1>The website value is: {}'''.format(language, framework, website)
     
 
-@app.route('/form-example')
+'''
+Form data comes from a form that has been sent as a POST request to a route. So instead of seeing the data in the URL (except for cases when the form is submitted with a GET request), the form data will be passed to the app behind the scenes. Even though you cannot easily see the form data that gets passed, your app can still read it.
+
+To demonstrate this, modify the form-example route in app.py to accept both GET and POST requests and returns a form:
+'''
+
+# allow both GET and POST requests
+@app.route('/form-example', methods=['GET', 'POST'])
 def form_example():
-    return 'Form Data Example'
+    return '''
+              <form method="POST">
+                  <div><label>Language: <input type="text" name="language"></label></div>
+                  <div><label>Framework: <input type="text" name="framework"></label></div>
+                  <input type="submit" value="Submit">
+              </form>'''
 
 @app.route('/json-example')
 def json_example():
