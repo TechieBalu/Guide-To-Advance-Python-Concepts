@@ -46,11 +46,11 @@ def query_example():
     return '''<h1>The language value is: {}</h1>'''.format(language)
 
 
-# @app.route('/query-example-multiple-keyvalue-pairs')
-# def query_example():
-#     language = request.args.get('language')
+@app.route('/query-example-multiple-keyvalue-pairs')
+def query_example():
+    language = request.args.get('language')
 
-#     return '''<h1>The language value is: {}</h1>'''.format(language)
+    return '''<h1>The language value is: {}</h1>'''.format(language)
     
 
 @app.route('/form-example')
