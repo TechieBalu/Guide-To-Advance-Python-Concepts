@@ -1,4 +1,4 @@
-from flask import Flask,redirect,url_for,request
+from flask import Flask,redirect,url_for,request,jsonify
 from markupsafe import escape
 
 
@@ -132,7 +132,7 @@ def form_example2():
 
 
 
-
+# Run this function or hit this route through client.py file in this directory
 
 @app.route('/process-json-data', methods=['GET', 'POST'])
 def process_data():
@@ -144,9 +144,143 @@ def process_data():
         print("Value 1 is: {}\nValue 2 is: {}".format(value1,value2))
         return "data processed"
 
-@app.route('/json-example')
+
+
+
+
+# GET requests will be blocked
+@app.route('/json-example', methods=['POST'])
 def json_example():
-    return 'JSON Object Example'
+    request_data = request.get_json()
+
+    language = None
+    framework = None
+    python_version = None
+    example = None
+    boolean_test = None
+
+    if request_data:
+        if 'language' in request_data:
+            language = request_data['language']
+
+        if 'framework' in request_data:
+            framework = request_data['framework']
+
+        if 'version_info' in request_data:
+            if 'python' in request_data['version_info']:
+                python_version = request_data['version_info']['python']
+
+        if 'examples' in request_data:
+            if (type(request_data['examples']) == list) and (len(request_data['examples']) > 0):
+                example = request_data['examples'][0]
+
+        if 'boolean_test' in request_data:
+            boolean_test = request_data['boolean_test']
+
+    return '''
+           The language value is: {}
+           The framework value is: {}
+           The Python version is: {}
+           The item at index 0 in the example list is: {}
+           The boolean value is: {}'''.format(language, framework, python_version, example, boolean_test)
+
+
+
+
+
+
+
+
+
+
+
+
+# * ______________________________REALPYTHON_________________________________________________
+# * https://www.realpythonproject.com/how-to-send-and-receive-data-in-flask/
+
+
+
+
+# http://127.0.0.1:5000/receiveParameters?language=Python&framework=flask
+# http://127.0.0.1:5000/receiveParameters
+@app.route('/receiveParameters')
+def receiveParameters():
+    '''
+    Receiving all data, either data exists or not
+    '''
+    data = request.args
+    print(data)
+    return {'data': data}, 200
+
+
+
+
+# Flask has a property called request.form that lets it access form data. Below is an endpoint to receive form data
+
+@app.route('/receiveFormData',methods=['POST'])
+def receiveFormData():
+  name = request.form['name']
+  age = request.form['age']
+  print(name)
+  print(age)
+  return{
+    'data': {
+      'name': name,
+      'age': age
+    }
+  },200
+
+
+# JSON is something that is common to most programming languages so this might be the most common case.
+# We can use request.json to retrieve the data. To convert the json string object to Python Dict , we will use a Flask method called jsonify . 
+# This will let you access keys similar to how you would do with a dictionary.
+
+@app.route('/receiveJson',methods=['POST'])
+def receivePostData():
+  data = jsonify(request.json)
+  print(data)
+  return  data,200
+
+
+
+
+
+# request.files returns an FileStorage object, as a result, you can directly use read to get the content of the file. 
+# We will need to decode it before sending it as response data.
+
+# Working with files can get somewhat confusing, specifically the following line
+
+# data = file.read().decode('utf-8')
+# Depending on the format of the file, you might not have to decode it. Instead, 
+# you might have to use something like json.loads(byteData) to convert a byte object to JSON.
+
+@app.route('/receiveFile',methods=['POST'])
+def receiveFile():
+  file= request.files['textFile']
+  data = file.read().decode('utf-8')
+  print(data)
+  return {
+    "data": data
+  },200
+
+
+
+
+
+
+
+
+
+
+#* ________________________________Flask Offical Doc_________________________________
+
+
+
+
+
+
+
+
 
 if __name__ == "__main__":
     app.run(debug=True)
