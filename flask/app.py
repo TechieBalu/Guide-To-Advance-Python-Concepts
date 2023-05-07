@@ -273,6 +273,26 @@ def receiveFile():
 
 
 #* ________________________________Flask Offical Doc_________________________________
+@app.route('/login', methods=['GET', 'POST'])
+def login():
+    if request.method == 'POST':
+        return "do_the_login()"
+    else:
+        return "show_the_login_form()"
+    
+
+# The example above keeps all methods for the route within one function, which can be useful if each part uses some common data.
+
+# You can also separate views for different methods into different functions. Flask provides a shortcut for decorating such routes 
+# with get(), post(), etc. for each common HTTP method.
+
+@app.get('/login')
+def login_get():
+    return "show_the_login_form()"
+
+@app.post('/login')
+def login_post():
+    return "do_the_login()"
 
 
 
