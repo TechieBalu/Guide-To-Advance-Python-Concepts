@@ -34,4 +34,21 @@ def twoSum( nums, target):
                     sums.extend([index,i])
                     return sums
                 
-print(twoSum(nums = [3,2,3], target = 6))
+# print(twoSum(nums = [3,2,3], target = 6))
+
+# print( type(3.96) is float)
+import math 
+
+x = math.modf(len([1,2,3,4,5])/2)
+print(x)
+
+y = len([1,2,3,4,5])/2
+z = int(len([1,2,3])/2)
+print('y is: ', y)
+yz = y-z
+if yz != 0.0:
+     print(yz)
+     median = math.ceil(y)
+     print("median", median)
+else:
+     print("OK", yz)
