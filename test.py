@@ -1,27 +1,37 @@
-l1 =  [value for value in range(0,5000000)]
-import time
+# l1 =  [value for value in range(0,5000000)]
+# import time
 
-startTime = time.time()
-l2 = l1[:]
-endTime = time.time()
-print((endTime - startTime))
+# startTime = time.time()
+# l2 = l1[:]
+# endTime = time.time()
+# print((endTime - startTime))
 
-# l2[0] =555
-# print(l1)
-# print(l2)
+# # l2[0] =555
+# # print(l1)
+# # print(l2)
 
-startTime2 = time.time()
-l3 = l1.copy()
-endTime2 = time.time()
-print((endTime2-startTime2))
-<<<<<<< HEAD
-
-
-(features\.denseblock[2|3|4]$)
+# startTime2 = time.time()
+# l3 = l1.copy()
+# endTime2 = time.time()
+# print((endTime2-startTime2))
 
 
-^(?!features\.denseblock(?:2|3|4)).*
 
-^(?!features\.denseblock(?:2|3|4)).*
-=======
->>>>>>> b7ce42a11d4e5719e2388b8be259122aae18f800
+def twoSum( nums, target):
+        """
+        :type nums: List[int]
+        :type target: int
+        :rtype: List[int]
+        """
+        sums = []
+        
+        for index, val in enumerate(nums): 
+            
+            for i in range(index+1,len(nums)):
+                sum = 0
+                sum = val + nums[i]
+                if sum == target:
+                    sums.extend([index,i])
+                    return sums
+                
+print(twoSum(nums = [3,2,3], target = 6))
