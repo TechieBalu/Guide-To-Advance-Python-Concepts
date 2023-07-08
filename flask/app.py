@@ -264,7 +264,26 @@ def receiveFile():
   },200
 
 
+# SOLUTION 1
+# Can Flask have optional URL parameters?
+# Stackoverflow
+@app.route('/<user_id>', defaults={'username': None})
+@app.route('/<user_id>/<username>')
+def show(user_id, username):
+    pass
 
+
+# SOLUTION 2
+# THIS ONLY FOR FLASK RESTFUL
+# If you are using Flask-Restful like me, it is also possible this way:
+
+
+# api.add_resource(UserAPI, '/<userId>', '/<userId>/<username>', endpoint = 'user')
+# a then in your Resource class:
+# class UserAPI(Resource):
+
+#   def get(self, userId, username=None):
+#     pass
 
 
 
