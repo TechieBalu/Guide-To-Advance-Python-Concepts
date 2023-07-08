@@ -12,7 +12,6 @@ We will talk about the following topics:
 - Lambda Function 	:white_check_mark:
 - Map Function 	:white_check_mark:
 - Filter Function 	:white_check_mark:
-- HashMaps in Python (Datastructures)
 - List vs Tuple vs Dictionary vs Sets vs Frozen sets :hourglass_flowing_sand:
 - List comprehension
 - Packing , Unpacking of arguments
