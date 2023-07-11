@@ -31,7 +31,7 @@ We will talk about the following topics:
 - Parallelization in Python
 - Regular Expressions in Python 
 - Logging in Python 
-- Performance measurements (timeit, lineprofiler)
+- Performance measurements
 - SECRETS OF PYTHON
 - Zen of Python
 
