@@ -31,7 +31,7 @@ We will talk about the following topics:
 - Parallelization in Python
 - Regular Expressions in Python 
 - Logging in Python 
-- Performance measurements
+- Performance measurements 
 - SECRETS OF PYTHON
 - Zen of Python
 
@@ -40,4 +40,4 @@ At the end of this series, you can find the `.doc` file as well in the Resources
 Happy Coding! 
 -
 Copyright (c) 2022 Shahmeer Khan
-
+ 
