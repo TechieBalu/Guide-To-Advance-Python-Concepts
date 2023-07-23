@@ -21,7 +21,6 @@ We will talk about the following topics:
 - Itertools in Python
 - Collections
 - Counters
-- NamedTuples 
 - Default Dict
 - DeQueue
 - File Handling 
