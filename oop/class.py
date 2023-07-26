@@ -10,21 +10,32 @@ class Car:
     # self.age = 10
     # into body of __init__ function and not in argument 
 
-    # Encapsulation: 
+    # * Encapsulation: 
     # Java and C++ has public private method to encapsulate means to hide the information from the user to change it, let's say e.g.
     # all the class variables can be easily accessed and modified by the instance, and we donot want that, 
     # to encapsulate this information, we make getters and setters, and make all class variables private (majority of them)
     # by making getters and setter funtions we can get control over what variables can be accessed through getters and what can be modified 
     # and in the modification, user can give string value to some variable that only operates on string, so we can also handle such information gracefully through setters
-    def __init__(self,speed,color) -> None:
+        # * Private Member variables 
+        # Only accessible in the class, not outside the class
+        # To make variables private we donot have any function public, private, protected etc just lke JAVA and C++, but we have 2 methods to make a variable private 
+        # 1. using single _ with variable name, it's just a convention to make a variable private but it does not actually
+        # 2. using double __ with variable name makes it actually private
+        # to change the value of private variables we use, setter functions
+    def __init__(self,speed,color, _b=10,__c=30) -> None:
         print("__INIT__") 
         self.speed = speed
         self.color = color
         self.model = 2023
-        self._b = 20
-        self.__c = 30
+        self._b = _b
+        self.__c = __c
         print(speed, color)
 
+    def set_c(self, __c):
+        self.__c = __c
+
+    def get_c(self):
+        return self.__c
 
 ford = Car(200,'red')
 honda = Car(200,'green')
@@ -41,8 +52,9 @@ audi = Car(200,'blue')
 print(audi.speed, audi.color)
 print(audi)
 print(audi.model)
-print(audi._b)
-print(audi.__c)
-
+# print(audi._b)
+# print(audi.__c)
+audi.set_c(100)
+print(audi.get_c())
 
 
