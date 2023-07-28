@@ -13,7 +13,7 @@ We will talk about the following topics:
 - Map Function 	:white_check_mark:
 - Filter Function 	:white_check_mark:
 - List vs Tuple vs Dictionary vs Sets vs Frozen sets  :white_check_mark:
-- List comprehension
+- List comprehension  :hourglass_flowing_sand:
 - Packing , Unpacking of arguments
 - Recurrsion
 - Argparsers 
