@@ -12,8 +12,8 @@ We will talk about the following topics:
 - Lambda Function 	:white_check_mark:
 - Map Function 	:white_check_mark:
 - Filter Function 	:white_check_mark:
-- List vs Tuple vs Dictionary vs Sets vs Frozen sets :hourglass_flowing_sand:
-- List comprehension
+- List vs Tuple vs Dictionary vs Sets vs Frozen sets  :white_check_mark:
+- List comprehension  :hourglass_flowing_sand:
 - Packing , Unpacking of arguments
 - Recurrsion
 - Argparsers 
@@ -26,7 +26,7 @@ We will talk about the following topics:
 - File Handling 
 - Exception Handling in Python
 - Sync and ASync in Python
-- Threading and Multiprocessing Concepts 
+- Threading and Multiprocessing Concepts  :hourglass_flowing_sand:
 - Parallelization in Python
 - Regular Expressions in Python 
 - Logging in Python 
