@@ -22,6 +22,8 @@ class Car:
         # 1. using single _ with variable name, it's just a convention to make a variable private but it does not actually
         # 2. using double __ with variable name makes it actually private
         # to change the value of private variables we use, setter functions
+
+        # Similarly we can also create private methods, that are only accessible in same class and not outside the class
     def __init__(self,speed,color, _b=10,__c=30) -> None:
         print("__INIT__") 
         self.speed = speed
@@ -36,6 +38,35 @@ class Car:
 
     def get_c(self):
         return self.__c
+    
+class Polygon:
+    print("Polygon")
+
+    __width = None
+    __height = None 
+    def set_values(self,width,height):
+        self.__width = width
+        self.__height = height
+    
+    def get_width (self):
+        return self.__width
+    def get_height (self):
+        return self.__height
+
+class Rectangle(Polygon):
+    print("Rectangle")
+
+    def area(self):
+        return self.get_width() * self.get_height()
+    
+
+class Triangle(Polygon):
+    print("Triangle")
+    def area(self):
+        return (self.get_width() * self.get_height()) / 2
+
+
+ 
 
 ford = Car(200,'red')
 honda = Car(200,'green')
@@ -56,5 +87,13 @@ print(audi.model)
 # print(audi.__c)
 audi.set_c(100)
 print(audi.get_c())
+
+print("**********************************")
+rect = Rectangle()
+tri = Triangle()
+
+rect.set_values(50,20)
+print(rect.area())
+
 
 
