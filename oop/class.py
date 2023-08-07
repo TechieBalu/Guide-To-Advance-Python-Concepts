@@ -1,3 +1,5 @@
+from shape import Shape
+
 class Car:
 
     # This is exactly not the constructor but very close to the constructor, we call it a constructor because it is the first method that is called when 
@@ -53,14 +55,14 @@ class Polygon:
     def get_height (self):
         return self.__height
 
-class Rectangle(Polygon):
+class Rectangle(Polygon, Shape):
     print("Rectangle")
 
     def area(self):
         return self.get_width() * self.get_height()
     
 
-class Triangle(Polygon):
+class Triangle(Polygon, Shape):
     print("Triangle")
     def area(self):
         return (self.get_width() * self.get_height()) / 2
@@ -94,6 +96,10 @@ tri = Triangle()
 
 rect.set_values(50,20)
 print(rect.area())
+
+
+tri.set_color("Black")
+print(tri.get_color())
 
 
 
