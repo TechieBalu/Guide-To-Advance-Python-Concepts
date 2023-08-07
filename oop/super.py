@@ -17,4 +17,6 @@ class Child(Parent, Parent2):
 ch = Child()
 # method resolution order 
 # this is the method in which order that methods are calling inside child class 
+# RULES: method inside sub class will be called first, after that method in base class will be called
+# every class is finally inherited from the python object class, so that's why we see "class object" in results of __mro__
 print(Child.__mro__)
