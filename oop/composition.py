@@ -1,4 +1,4 @@
-# derlivering the responsibility of one class to other becasue there is no is a and has a relation between them so we use
+# derlivering the responsibility of one class to other becasue there is no "is a" relation between them so we use
 #  composition
 
 
