@@ -1,5 +1,10 @@
 # derlivering the responsibility of one class to other becasue there is no "is a" relation between them so we use
 #  composition
+# Composition represents the relation of "part-of" between 2 classes 
+# below example: Salary in part of Employee
+
+# In composition, when we delete emplpoyee object, salary object will be deleted automatically - salary object is dependent of employee
+
 
 
 class Salary:
