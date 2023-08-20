@@ -42,6 +42,7 @@ def outer_function():
 
 outer_function()
 
+print("_____________________________________________________")
 
 
 def outer_function():
@@ -54,3 +55,21 @@ def outer_function():
     print(y)
 
 outer_function()
+
+print("_____________________________________________________")
+
+
+def outer_function():
+    y = 20  # y is in the enclosing scope of inner_function
+
+    def inner_function():
+        nonlocal y
+        print(y)
+        y = y +100
+
+    inner_function()  # Prints 21
+    print(y)
+
+outer_function()
+
+print(len([1, 2, 3]))  # len is a built-in function
