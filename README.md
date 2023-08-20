@@ -16,7 +16,7 @@ We will talk about the following topics:
 - List comprehension  :hourglass_flowing_sand:
 - Packing , Unpacking of arguments
 - Recurrsion
-- Argparsers 
+- Argument Parsing :hourglass_flowing_sand:
 - Hashing techniques in Python
 - Itertools in Python
 - Collections
