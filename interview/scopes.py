@@ -34,10 +34,23 @@ def outer_function():
     y = 20  # y is in the enclosing scope of inner_function
 
     def inner_function():
-        nonlocal y
-        y += 1
+        x = y + 100
+        print(x)
+
+    inner_function()  # Prints 21
+    print(y)
+
+outer_function()
+
+
+
+def outer_function():
+    y = 20  # y is in the enclosing scope of inner_function
+
+    def inner_function():
         print(y)
 
     inner_function()  # Prints 21
+    print(y)
 
 outer_function()
