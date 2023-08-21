@@ -35,3 +35,7 @@ def names_decorator(function):
 def say_hello(name1, name2):
    return 'Hello ' + name1 + '! Hello ' + name2 + '!'
 say_hello('sara', 'ansh')   # output => 'Hello Sara! Hello Ansh!'
+
+
+
+
