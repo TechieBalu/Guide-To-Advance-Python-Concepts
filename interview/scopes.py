@@ -73,3 +73,14 @@ def outer_function():
 outer_function()
 
 print(len([1, 2, 3]))  # len is a built-in function
+
+
+print("_____________________________________________________")
+def fun3():
+    x = 100
+    return id(x)
+
+
+print(fun3())
+a = fun3()
+print(ctypes.cast(fun3(),ctypes.py_object).value)
