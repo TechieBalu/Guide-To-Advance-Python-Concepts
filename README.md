@@ -7,7 +7,7 @@ We will talk about the following topics:
 - Iterables vs Iterators 	:white_check_mark:
 - Iterators vs Generators 	:white_check_mark:
 - String Formattings  :white_check_mark:
-- DateTime conversions 
+- DateTime conversions :white_check_mark:
 - Magic or Dunder Functions in Python (Read `.doc` for this article) :white_check_mark:
 - Lambda Function 	:white_check_mark:
 - Map Function 	:white_check_mark:
@@ -25,7 +25,7 @@ We will talk about the following topics:
 - DeQueue
 - File Handling 
 - Exception Handling in Python
-- Sync and ASync in Python
+- sync and async in Python
 - Threading and Multiprocessing Concepts  :hourglass_flowing_sand:
 - Parallelization in Python
 - Regular Expressions in Python 
