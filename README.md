@@ -7,7 +7,7 @@ We will talk about the following topics:
 - Iterables vs Iterators 	:white_check_mark:
 - Iterators vs Generators 	:white_check_mark:
 - String Formattings  :white_check_mark:
-- DateTime conversions 
+- DateTime conversions :white_check_mark:
 - Magic or Dunder Functions in Python (Read `.doc` for this article) :white_check_mark:
 - Lambda Function 	:white_check_mark:
 - Map Function 	:white_check_mark:
