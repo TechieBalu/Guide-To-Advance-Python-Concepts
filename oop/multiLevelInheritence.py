@@ -5,7 +5,7 @@ class A:
         self.a_name = a_name
 
     
-    def pr():
+    def pr(self):
         print("IM A CLASS")
    
 # Intermediate class
@@ -15,7 +15,7 @@ class B(A):
        # invoke constructor of class A
        A.__init__(self, a_name)
     
-    def pr():
+    def pr(self):
         print("IM B CLASS")
        
 
@@ -30,7 +30,7 @@ class C(B):
         B.__init__(self, b_name, a_name)
     
     
-    def pr():
+    def pr(self):
         print("IM C CLASS")
        
     def display_names(self):
@@ -39,8 +39,8 @@ class C(B):
        print("C name : ", self.c_name)
 
 
-class D(C,B):
-    def __init__():
+class D(C,B,A):
+    def __init__(self):
         # super().__init__(b_name, a_name)
         pass
 
@@ -58,3 +58,6 @@ obj1.display_names()
 print(A.__mro__)
 print(B.__mro__)
 print(C.__mro__)
+print(D.__mro__)
+dobj = D()
+dobj.pr()
