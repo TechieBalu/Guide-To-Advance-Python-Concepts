@@ -39,9 +39,12 @@ class C(B):
        print("C name : ", self.c_name)
 
 
-class D(C,B,A):
+# we cannot use the sequence like A,B,C , we need reversed sequence because if we donot use reversed sequence
+# in the multi level inheritence then it will give error.
+# * If we are inheriting any class we cannot leave any class empty just by typing "pass" we need to create it's constructor.
+class D(C,B):
+    # pass
     def __init__(self):
-        # super().__init__(b_name, a_name)
         pass
 
 # class A2(A):
@@ -61,3 +64,10 @@ print(C.__mro__)
 print(D.__mro__)
 dobj = D()
 dobj.pr()
+
+
+def fast(item2= []):  
+    item2.append (1)  
+    return item2  
+print (fast()  )
+print (fast() )
