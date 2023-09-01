@@ -30,7 +30,9 @@ We will talk about the following topics:
 - Parallelization in Python
 - Regular Expressions in Python 
 - Logging in Python 
-- Performance measurements 
+- Performance measurements
+- Python Automations
+- Subprocess Python
 - SECRETS OF PYTHON
 - Zen of Python
 
