@@ -16,4 +16,4 @@ workers = Table(
     Column('name', String)
 )
 
-meta.creat_all(engine)
+meta.create_all(engine)
