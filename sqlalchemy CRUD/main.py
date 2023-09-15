@@ -1,8 +1,8 @@
 from sqlalchemy import create_engine, MetaData, Table, Column, Integer, String
 
 engine = create_engine("sqlite:///sample.db", echo=True)
-print(engine)
-print(type(engine))
+print("ENGINE", engine)
+print("TYPE OF ENGINE", type(engine))
 
 meta= MetaData()
 
@@ -23,3 +23,12 @@ workers = Table(
 
 
 # Inserting into Database
+ins = workers.insert().values(name="Mana")
+print("INSTANCE TO INSERT: ", ins)
+print("Type OF INSTANCE TO INSERT: ", type(ins))
+
+conn = engine.connect()
+print("CONNECTION: ", conn)
+result = conn.execute(ins)
+print("RESULT: ", result)
+print("TYPE OF RESULT: ", result)
