@@ -26,11 +26,13 @@ We will talk about the following topics:
 - File Handling 
 - Exception Handling in Python
 - sync and async in Python
-- Threading and Multiprocessing Concepts  :hourglass_flowing_sand:
+- Threading and Multiprocessing Concepts (GIL)  :hourglass_flowing_sand:
 - Parallelization in Python
 - Regular Expressions in Python 
 - Logging in Python 
-- Performance measurements 
+- Performance measurements
+- Python Automations
+- Subprocess Python
 - SECRETS OF PYTHON
 - Zen of Python
 
