@@ -16,4 +16,10 @@ workers = Table(
     Column('name', String)
 )
 
-meta.create_all(engine)
+
+# Below line is used to create the table in the database 
+# Once the database and table is created we donot need this line so I have commented it out 
+# meta.create_all(engine)
+
+
+# Inserting into Database
