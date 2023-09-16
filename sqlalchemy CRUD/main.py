@@ -51,7 +51,6 @@ workers = Table(
 
 
 # * SELECT QUERY
-
 stmt = workers.select()
 conn = engine.connect()
 result = conn.execute(stmt)
