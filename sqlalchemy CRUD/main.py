@@ -38,12 +38,24 @@ workers = Table(
 
 
 # * UPDATE
+# conn = engine.connect()
+# stmt = update(workers).where(workers.c.name=='Mana').values(name='Mana Ding Ding')
+# print("STATEMENT IS: ",stmt)
+# update_result = conn.execute(stmt)
+# print(update_result)
+# wk = workers.select()
+# print("WK IS: ", wk)
+# result = conn.execute(wk).fetchall()
+# print("RESULT IS: ", result)
+
+
+
+# * SELECT QUERY
+
+stmt = workers.select()
 conn = engine.connect()
-stmt = update(workers).where(workers.c.name=='Mana').values(name='Mana Ding Ding')
-print("STATEMENT IS: ",stmt)
-update_result = conn.execute(stmt)
-print(update_result)
-wk = workers.select()
-print("WK IS: ", wk)
-result = conn.execute(wk).fetchall()
-print("RESULT IS: ", result)
+result = conn.execute(stmt)
+
+print("RESULT IS: ", result )
+for i in result: 
+    print(i)
