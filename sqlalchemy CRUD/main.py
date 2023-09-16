@@ -24,55 +24,60 @@ workers = Table(
 
 
 # Inserting into Database
-# ins = workers.insert().values(name="GING GING")
-# print("INSTANCE TO INSERT: ", ins)
-# print("Type OF INSTANCE TO INSERT: ", type(ins))
-# conn = engine.connect()
-# print("CONNECTION: ", conn)
-# result = conn.execute(ins)
-# print("RESULT: ", result)
-# print("TYPE OF RESULT: ", result)
+def insert(value):
+    ins = workers.insert().values(name=value)
+    print("INSTANCE TO INSERT: ", ins)
+    print("Type OF INSTANCE TO INSERT: ", type(ins))
+    conn = engine.connect()
+    print("CONNECTION: ", conn)
+    result = conn.execute(ins)
+    print("RESULT: ", result)
+    print("TYPE OF RESULT: ", result)
+    return f"{value} inserted successfully"
 
 
 
 
 # * UPDATE
-# conn = engine.connect()
-# stmt = update(workers).where(workers.c.name=='Mana').values(name='Mana Ding Ding')
-# print("STATEMENT IS: ",stmt)
-# update_result = conn.execute(stmt)
-# print(update_result)
-# wk = workers.select()
-# print("WK IS: ", wk)
-# result = conn.execute(wk).fetchall()
-# print("RESULT IS: ", result)
+def update_fun(existing_value,updating_value):
+    conn = engine.connect()
+    stmt = update(workers).where(workers.c.name==existing_value).values(name=updating_value)
+    print("STATEMENT IS: ",stmt)
+    update_result = conn.execute(stmt)
+    print(update_result)
+    wk = workers.select()
+    print("WK IS: ", wk)
+    result = conn.execute(wk).fetchall()
+    print("RESULT IS: ", result)
+    return f"{updating_value} updated successfully"
+
 
 
 
 # * SELECT QUERY
-# stmt = workers.select()
-# conn = engine.connect()
-# result = conn.execute(stmt)
+def select():
+    stmt = workers.select()
+    conn = engine.connect()
+    result = conn.execute(stmt)
 
-# print("RESULT IS: ", result )
-# for i in result: 
-#     print(i)
+    print("RESULT IS: ", result )
+    for i in result: 
+        print(i)
 
 
 # * DELETE  QUERY: 
-
-# stmt = workers.delete().where(workers.c.name=='Mana')
-# conn = engine.connect()
-# conn.execute(stmt)
-# allstmt = workers.select()
-# print(conn.execute(allstmt).fetchall())
+def delete(value):
+    stmt = workers.delete().where(workers.c.name=='Mana')
+    conn = engine.connect()
+    conn.execute(stmt)
+    allstmt = workers.select()
+    print(conn.execute(allstmt).fetchall())
 
 
 
 
 # * Writing RAW Query
-stmt = text("SELECT * FROM workers")
-conn = engine.connect()
-result = conn.execute(stmt).fetchall()
-print(result)
-
+# stmt = text("SELECT * FROM workers")
+# conn = engine.connect()
+# result = conn.execute(stmt).fetchall()
+# print(result)
