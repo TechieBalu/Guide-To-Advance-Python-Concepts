@@ -67,11 +67,13 @@ def select():
 
 # * DELETE  QUERY: 
 def delete(value):
-    stmt = workers.delete().where(workers.c.name=='Mana')
+    stmt = workers.delete().where(workers.c.name==value)
     conn = engine.connect()
     conn.execute(stmt)
     allstmt = workers.select()
     print(conn.execute(allstmt).fetchall())
+    return f"{value} deleted successfully"
+ 
 
 
 
