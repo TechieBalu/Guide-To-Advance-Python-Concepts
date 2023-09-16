@@ -79,7 +79,8 @@ def delete(value):
 
 
 # * Writing RAW Query
-# stmt = text("SELECT * FROM workers")
-# conn = engine.connect()
-# result = conn.execute(stmt).fetchall()
-# print(result)
+def raw_select():
+    stmt = text("SELECT * FROM workers")
+    conn = engine.connect()
+    result = conn.execute(stmt).fetchall()
+    print(result)
