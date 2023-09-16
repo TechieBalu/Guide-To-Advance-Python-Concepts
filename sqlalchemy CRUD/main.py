@@ -1,4 +1,4 @@
-from sqlalchemy import create_engine, MetaData, Table, Column, Integer, String
+from sqlalchemy import create_engine, MetaData, Table, Column, Integer, String, text
 from sqlalchemy.sql.expression import update, delete
 
 engine = create_engine("sqlite:///sample.db", echo=True)
@@ -61,8 +61,18 @@ workers = Table(
 
 # * DELETE  QUERY: 
 
-stmt = workers.delete().where(workers.c.name=='Mana')
+# stmt = workers.delete().where(workers.c.name=='Mana')
+# conn = engine.connect()
+# conn.execute(stmt)
+# allstmt = workers.select()
+# print(conn.execute(allstmt).fetchall())
+
+
+
+
+# * Writing RAW Query
+stmt = text("SELECT * FROM workers")
 conn = engine.connect()
-conn.execute(stmt)
-allstmt = workers.select()
-print(conn.execute(allstmt).fetchall())
+result = conn.execute(stmt).fetchall()
+print(result)
+
