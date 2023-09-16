@@ -1,4 +1,5 @@
 from sqlalchemy import create_engine, MetaData, Table, Column, Integer, String
+from sqlalchemy.sql.expression import update
 
 engine = create_engine("sqlite:///sample.db", echo=True)
 print("ENGINE", engine)
@@ -23,12 +24,26 @@ workers = Table(
 
 
 # Inserting into Database
-ins = workers.insert().values(name="Mana")
-print("INSTANCE TO INSERT: ", ins)
-print("Type OF INSTANCE TO INSERT: ", type(ins))
+# ins = workers.insert().values(name="Mana")
+# print("INSTANCE TO INSERT: ", ins)
+# print("Type OF INSTANCE TO INSERT: ", type(ins))
 
+# conn = engine.connect()
+# print("CONNECTION: ", conn)
+# result = conn.execute(ins)
+# print("RESULT: ", result)
+# print("TYPE OF RESULT: ", result)
+
+
+
+
+# * UPDATE
 conn = engine.connect()
-print("CONNECTION: ", conn)
-result = conn.execute(ins)
-print("RESULT: ", result)
-print("TYPE OF RESULT: ", result)
+stmt = update(workers).where(workers.c.name=='Mana').values(name='Mana Ding Ding')
+print("STATEMENT IS: ",stmt)
+update_result = conn.execute(stmt)
+print(update_result)
+wk = workers.select()
+print("WK IS: ", wk)
+result = conn.execute(wk).fetchall()
+print("RESULT IS: ", result)
