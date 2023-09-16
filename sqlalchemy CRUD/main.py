@@ -67,7 +67,7 @@ def select():
 
 # * DELETE  QUERY: 
 def delete(value):
-    stmt = workers.delete().where(workers.c.name==value)
+    stmt = delete().where(workers.c.name==value)
     conn = engine.connect()
     conn.execute(stmt)
     allstmt = workers.select()
