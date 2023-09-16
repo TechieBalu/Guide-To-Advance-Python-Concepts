@@ -1,5 +1,5 @@
 from sqlalchemy import create_engine, MetaData, Table, Column, Integer, String
-from sqlalchemy.sql.expression import update
+from sqlalchemy.sql.expression import update, delete
 
 engine = create_engine("sqlite:///sample.db", echo=True)
 print("ENGINE", engine)
@@ -24,14 +24,14 @@ workers = Table(
 
 
 # Inserting into Database
-ins = workers.insert().values(name="GING GING")
-print("INSTANCE TO INSERT: ", ins)
-print("Type OF INSTANCE TO INSERT: ", type(ins))
-conn = engine.connect()
-print("CONNECTION: ", conn)
-result = conn.execute(ins)
-print("RESULT: ", result)
-print("TYPE OF RESULT: ", result)
+# ins = workers.insert().values(name="GING GING")
+# print("INSTANCE TO INSERT: ", ins)
+# print("Type OF INSTANCE TO INSERT: ", type(ins))
+# conn = engine.connect()
+# print("CONNECTION: ", conn)
+# result = conn.execute(ins)
+# print("RESULT: ", result)
+# print("TYPE OF RESULT: ", result)
 
 
 
@@ -60,3 +60,9 @@ print("TYPE OF RESULT: ", result)
 
 
 # * DELETE  QUERY: 
+
+stmt = workers.delete().where(workers.c.name=='Mana')
+conn = engine.connect()
+conn.execute(stmt)
+allstmt = workers.select()
+print(conn.execute(allstmt).fetchall())
