@@ -24,15 +24,14 @@ workers = Table(
 
 
 # Inserting into Database
-# ins = workers.insert().values(name="Mana")
-# print("INSTANCE TO INSERT: ", ins)
-# print("Type OF INSTANCE TO INSERT: ", type(ins))
-
-# conn = engine.connect()
-# print("CONNECTION: ", conn)
-# result = conn.execute(ins)
-# print("RESULT: ", result)
-# print("TYPE OF RESULT: ", result)
+ins = workers.insert().values(name="GING GING")
+print("INSTANCE TO INSERT: ", ins)
+print("Type OF INSTANCE TO INSERT: ", type(ins))
+conn = engine.connect()
+print("CONNECTION: ", conn)
+result = conn.execute(ins)
+print("RESULT: ", result)
+print("TYPE OF RESULT: ", result)
 
 
 
@@ -51,10 +50,13 @@ workers = Table(
 
 
 # * SELECT QUERY
-stmt = workers.select()
-conn = engine.connect()
-result = conn.execute(stmt)
+# stmt = workers.select()
+# conn = engine.connect()
+# result = conn.execute(stmt)
 
-print("RESULT IS: ", result )
-for i in result: 
-    print(i)
+# print("RESULT IS: ", result )
+# for i in result: 
+#     print(i)
+
+
+# * DELETE  QUERY: 
