@@ -18,6 +18,8 @@ db = SQLAlchemy(app)
 # by typing the python in the terminal accessing the terminal, importing the "db" from "app" and typing the code 
 # db.create_all() 
 # this will create the sqlite file in the same directory that we can open it in the DB Browser
+# * Important we cannot create a database just by using the db.create_all() method. because in the 3.0 or above versions are required to 
+# go with in the app_context and then use the db.create_all() function
 with app.app_context():
     db.create_all()
 if __name__ == "__main__":
