@@ -23,7 +23,7 @@ workers = Table(
 # meta.create_all(engine)
 
 
-# Inserting into Database
+# *Inserting into Database
 def insert(value):
     ins = workers.insert().values(name=value)
     print("INSTANCE TO INSERT: ", ins)
