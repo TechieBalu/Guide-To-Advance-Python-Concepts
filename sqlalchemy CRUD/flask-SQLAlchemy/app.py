@@ -105,8 +105,9 @@ def delete(id):
 def update(id, data):
     with app.app_context():
         user = db.session.get(User,id)
-        user.name = "Shahmeer Khan"
-        db.session.commit()
+        if user is not None:
+            user.name = "Shahmeer Khan"
+            db.session.commit()
 
 add_user()        
 select_all()
