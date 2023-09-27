@@ -1,6 +1,7 @@
 from flask import Flask 
 from flask_sqlalchemy import SQLAlchemy
 from datetime import datetime
+from sqlalchemy.exc import IntegrityError
 
 app = Flask(__name__)
 
@@ -31,7 +32,7 @@ class User(db.Model):
     date_joined = db.Column(db.Date, default = datetime.utcnow)
     
     def __repr__(self):
-        return f"<User: {self.email}>"
+        return f"<User: {self.email}, Name: {self.name}>"
 
 # * Important we cannot create a database just by using the db.create_all() method. because in the 3.0 or above versions are required to 
 # go with in the app_context and then use the db.create_all() function
@@ -44,6 +45,34 @@ class User(db.Model):
 
 with app.app_context():
     db.create_all()
+
+
+def select_all():
+    # selectQuery = User.query.all()
+    
+    # selectQuery = db.select(User).scalars()
+    with app.app_context():
+        selectQuery = db.session.execute(db.select(User).order_by(User.name)).scalars()
+        print(selectQuery.all())
+
+
+# INSERT:
+def add_user():
+    
+        user = User(name = "Almas Zia", email = "Almas Zia@gmail.com")
+        with app.app_context():
+            try:
+                db.session.add(user)
+                db.session.commit()
+            except IntegrityError as e :
+                db.session.rollback()  # Rollback the transaction to avoid leaving the database in an inconsistent state
+                print(f"IntegrityError: {str(e)}")
+            
+            finally:
+                db.session.close()
+
+add_user()        
+select_all()
 
 if __name__ == "__main__":
     app.run(debug=True)
