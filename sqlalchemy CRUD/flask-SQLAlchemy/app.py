@@ -57,9 +57,9 @@ def select_all():
 
 
 # INSERT:
-def add_user():
+def add_user(name,email):
     
-        user = User(name = "Shahmeer", email = "shahmirkhan510@gmail.com")
+        user = User(name = name, email = email)
         with app.app_context():
             try:
                 db.session.add(user)
@@ -102,19 +102,23 @@ def delete(id):
             db.session.commit()
 
 
-def update(id, data):
+def update(id, name):
     with app.app_context():
         user = db.session.get(User,id)
         if user is not None:
-            user.name = "Shahmeer Khan"
+            user.name = name
             db.session.commit()
 
-add_user()        
+add_user("Arslan", "arslan@gmail.com")        
 select_all()
 # select_user_by_name_one("Shahmeer")
 select_user_by_name_all("Shahmeer")
 delete(2)
 select_all()
+update(3,"Shahmeer Khan")
+print("\n\n SELECT ALL")
+select_all()
+
 
 
 if __name__ == "__main__":
