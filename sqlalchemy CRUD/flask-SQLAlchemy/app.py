@@ -59,7 +59,7 @@ def select_all():
 # INSERT:
 def add_user():
     
-        user = User(name = "Almas Zia", email = "Almas Zia@gmail.com")
+        user = User(name = "Shahmeer", email = "shahmirkhan510@gmail.com")
         with app.app_context():
             try:
                 db.session.add(user)
@@ -71,8 +71,50 @@ def add_user():
             finally:
                 db.session.close()
 
+def select_user_by_name_one(name):
+    with app.app_context():
+        user = db.session.execute(db.select(User).filter_by(name=name)).scalar_one()
+        print(user)
+        print("ID of User is: ", user.id)
+        print("Name of User is: ", user.name)
+
+    
+    return user
+
+def select_user_by_name_all(name):
+    with app.app_context():
+        user = db.session.execute(db.select(User).filter_by(name=name)).scalars()
+        print("\n User is: ",user)
+        for us in user:
+            print(us)
+            print("ID of User is: ", us.id)
+            print("Name of User is: ", us.name, "\n\n")
+
+    
+    return user
+
+def delete(id):
+    with app.app_context():
+        user = db.session.get(User,id)
+        # print(user)
+        if user is not None:
+            db.session.delete(user)
+            db.session.commit()
+
+
+def update(id, data):
+    with app.app_context():
+        user = db.session.get(User,id)
+        user.name = "Shahmeer Khan"
+        db.session.commit()
+
 add_user()        
 select_all()
+# select_user_by_name_one("Shahmeer")
+select_user_by_name_all("Shahmeer")
+delete(2)
+select_all()
+
 
 if __name__ == "__main__":
     app.run(debug=True)
