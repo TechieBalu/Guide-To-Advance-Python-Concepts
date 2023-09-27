@@ -68,8 +68,8 @@ def add_user(name,email):
                 db.session.rollback()  # Rollback the transaction to avoid leaving the database in an inconsistent state
                 print(f"IntegrityError: {str(e)}")
             
-            finally:
-                db.session.close()
+            # finally:
+            #     db.session.close()
 
 def select_user_by_name_one(name):
     with app.app_context():
