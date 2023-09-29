@@ -72,22 +72,31 @@ def user():
         return make_response(json.dumps(response), 403)
     
     if request.method == "GET": 
-        id = request.args.get("id")
-        print(id)
-        if id:
-            response = select_user_by_id(id)
-            # if user not found
-            if response == None:
-                error = json.dumps({"error":"User Does Not Exists"})
-                return make_response(error, 404)
-            # if user found
-            return make_response(json.dumps(response), 200)
+        # everything comes as a string
+        try:
+            id = request.args.get("id")
+            # print("ID is: ", id)
+        # print("THIS IS ID WE GET",id)
+        # print(type(id))
+            if id:
+                id = int(id)
+                response = select_user_by_id(id)
+                # if user not found
+                print("RESPONSE IS: ",response)
+                if response == None:
+                    error = json.dumps({"error":"User Does Not Exists"})
+                    return make_response(error, 404)
+                # if user found
+                return make_response(json.dumps(response), 200)
+            
+            else:
+                response = select_all()
+                return make_response(json.dumps(response),200)
         
-        else:
-            response = select_all()
-            return make_response(json.dumps(response),200)
-        # return make_response("ID NOT FOUND", 200)
-        # else:
+        except:
+            return make_response(json.dumps({"error":"Invalid Input"}),404)
+
+        
 
             
 
