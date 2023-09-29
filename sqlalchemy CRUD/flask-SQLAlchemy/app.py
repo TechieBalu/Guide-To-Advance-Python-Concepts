@@ -36,23 +36,23 @@ db = SQLAlchemy(app)
 #     db.create_all()
 
 
-@app.route("/add", methods=["POST","GET", "PUT", "DELETE"])
-def add_user():
+@app.route("/user", methods=["POST","GET", "PUT", "DELETE"])
+def user():
     if request.method == "POST":
         data = request.json
-        name = data.get("user", None)
-        email = data.get("email", None)
+        name, email = data.get("user", None),  data.get("email", None)
         if name is None or email is None:
             error = json.dumps({"Fields Error": "Required Fields Are Not Available"})
             return make_response(error, 400)
         print(name,email)
         # print(data)
         print(type(data))
-        add_user(name,email)
-
-
-        response = json.dumps({"msg":"Data Added Successfully"})
-        return make_response(response, 200)
+        response = add_user(name,email)
+        if response == True:
+            response = json.dumps({"msg":"Data Added Successfully"})
+            return make_response(response, 200)
+        
+        return make_response(json.dumps(response), 403)
 
 
 # add_user("Arslan", "arslan@gmail.com")        

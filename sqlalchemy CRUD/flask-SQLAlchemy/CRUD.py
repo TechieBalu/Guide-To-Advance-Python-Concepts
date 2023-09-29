@@ -16,7 +16,7 @@ def select_all():
 
 # INSERT:
 def add_user(name,email):
-    
+        print("IM IN ADD USER")
         user = User(name = name, email = email)
         with app.app_context():
             try:
