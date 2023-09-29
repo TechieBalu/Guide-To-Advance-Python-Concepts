@@ -2,7 +2,8 @@ from flask import Flask
 from flask_sqlalchemy import SQLAlchemy
 from datetime import datetime
 from sqlalchemy.exc import IntegrityError
-from app import app , db,  User
+from app import app , db
+from models import User
 
 def select_all():
     # selectQuery = User.query.all()

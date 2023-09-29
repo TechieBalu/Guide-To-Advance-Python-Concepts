@@ -3,6 +3,7 @@ from flask_sqlalchemy import SQLAlchemy
 from datetime import datetime
 from sqlalchemy.exc import IntegrityError
 import json
+from CRUD import *
 
 
 app = Flask(__name__)
@@ -40,6 +41,9 @@ def add_user():
     if request.method == "POST":
         data = request.json
         print(data)
+        print(type(data))
+        # add_user()
+
 
         # response = json.dumps({"ok":"OK"})
         return make_response("OK", 200)
