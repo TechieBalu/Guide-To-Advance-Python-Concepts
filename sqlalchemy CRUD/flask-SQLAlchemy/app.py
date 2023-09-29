@@ -4,6 +4,7 @@ from datetime import datetime
 from sqlalchemy.exc import IntegrityError
 import json
 from CRUD import *
+# from CRUD import select_all
 
 
 app = Flask(__name__)
@@ -36,7 +37,23 @@ db = SQLAlchemy(app)
 #     db.create_all()
 
 
-@app.route("/user", methods=["POST","GET", "PUT", "DELETE"])
+
+# * IMPORTANT FLASK
+# There are two methods we can use to write get,put,patch requests, 
+# 1- If user sends id in route with vairable (as a parameter) like {base_url}/user?id={user_id} 
+# 2- if user just sends id just like this route "user/5" and we capture this id=5 in the id variable in Flask 
+# 
+# For 1st approach we donot need to change the route (user/), user is requesting with method "GET" and passing id like 
+#   {base_url}/user?id={user_id} this, we can easily check either id is passed or not by id = request.args.get("id") 
+# above code, but in this approach route gets complicated for the client side 
+
+# For 2nd approach we need to define another route like "app.rouute('/user/<int:id>', methods=["GET"])"
+# and also we need to get the id as a parameter like user(id = None) 
+# and we will check if id is passed then we perform a function and if id is not passed we perform something else
+
+# I am writing code here for both scenarios
+
+@app.route("/user", methods=["POST","GET", "PUT", "DELETE", "PATCH"])
 def user():
     if request.method == "POST":
         data = request.json
@@ -55,10 +72,27 @@ def user():
         return make_response(json.dumps(response), 403)
     
     if request.method == "GET": 
+        id = request.args.get("id")
+        print(id)
+        if id:
+            response = select_user_by_id(id)
+            # if user not found
+            if response == None:
+                error = json.dumps({"error":"User Does Not Exists"})
+                return make_response(error, 404)
+            # if user found
+            return make_response(json.dumps(response), 200)
+        
+        else:
+            response = select_all()
+            return make_response(json.dumps(response),200)
+        # return make_response("ID NOT FOUND", 200)
+        # else:
 
+            
 
 # add_user("Arslan", "arslan@gmail.com")        
-# select_all()
+# CRUD.select_all()
 # # select_user_by_name_one("Shahmeer")
 # select_user_by_name_all("Shahmeer")
 # delete(2)
