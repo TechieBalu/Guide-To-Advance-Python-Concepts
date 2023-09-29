@@ -1,4 +1,4 @@
-from flask import Flask 
+from flask import Flask,redirect,url_for,request,jsonify, make_response
 from flask_sqlalchemy import SQLAlchemy
 from datetime import datetime
 from sqlalchemy.exc import IntegrityError
@@ -32,6 +32,10 @@ db = SQLAlchemy(app)
 # with app.app_context():
 #     db.create_all()
 
+
+@app.route("/add", methods=["POST"])
+def add_user():
+    data = request.json
 
 
 # add_user("Arslan", "arslan@gmail.com")        
