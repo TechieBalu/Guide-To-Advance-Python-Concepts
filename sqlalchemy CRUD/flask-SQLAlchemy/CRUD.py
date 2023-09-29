@@ -93,9 +93,16 @@ def delete(id):
             db.session.commit()
 
 
-def update(id, name):
+def update_name(id,name):
     with app.app_context():
+        
         user = db.session.get(User,id)
         if user is not None:
             user.name = name
             db.session.commit()
+            user = db.session.get(User,id)
+            print("USER IS: ",user)
+            id, name, email = user.id, user.name, user.email
+            print(id,name,email)
+            return {"id": id, "name":name, "email":email}
+        return {'error': "User Doesnot Found"}
