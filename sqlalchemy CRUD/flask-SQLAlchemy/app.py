@@ -40,13 +40,19 @@ db = SQLAlchemy(app)
 def add_user():
     if request.method == "POST":
         data = request.json
-        print(data)
+        name = data.get("user", None)
+        email = data.get("email", None)
+        if name is None or email is None:
+            error = json.dumps({"Fields Error": "Required Fields Are Not Available"})
+            return make_response(error, 400)
+        print(name,email)
+        # print(data)
         print(type(data))
-        # add_user()
+        add_user(name,email)
 
 
-        # response = json.dumps({"ok":"OK"})
-        return make_response("OK", 200)
+        response = json.dumps({"msg":"Data Added Successfully"})
+        return make_response(response, 200)
 
 
 # add_user("Arslan", "arslan@gmail.com")        

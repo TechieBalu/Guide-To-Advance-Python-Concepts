@@ -22,9 +22,11 @@ def add_user(name,email):
             try:
                 db.session.add(user)
                 db.session.commit()
+                return True
             except IntegrityError as e :
                 db.session.rollback()  # Rollback the transaction to avoid leaving the database in an inconsistent state
                 print(f"IntegrityError: {str(e)}")
+                return {"error":"Email Already Exists"}
             
             # finally:
             #     db.session.close()
