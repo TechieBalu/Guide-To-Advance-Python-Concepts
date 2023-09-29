@@ -18,5 +18,6 @@ class User(db.Model):
     email = db.Column(db.String(100), unique=True)  
     date_joined = db.Column(db.Date, default = datetime.utcnow)
     
-    def __repr__(self):
-        return f"<User: {self.email}, Name: {self.name}>"
+    # def __repr__(self):
+    #     # return f"<User: {self.email}, Name: {self.name}>"
+    #     return {"name":self.name, "email": self.email} 
