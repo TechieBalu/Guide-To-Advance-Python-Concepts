@@ -41,6 +41,11 @@ def select_user_by_name_one(name):
     
     return user
 
+def select_user_by_id(id):
+    with app.app_context():
+        user = db.session.execute(db.select(User).filter_by(id=id)).scalar_one()
+        return user
+
 def select_user_by_name_all(name):
     with app.app_context():
         user = db.session.execute(db.select(User).filter_by(name=name)).scalars()
