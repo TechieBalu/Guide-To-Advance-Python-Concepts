@@ -53,6 +53,8 @@ def user():
             return make_response(response, 200)
         
         return make_response(json.dumps(response), 403)
+    
+    if request.method == "GET": 
 
 
 # add_user("Arslan", "arslan@gmail.com")        
