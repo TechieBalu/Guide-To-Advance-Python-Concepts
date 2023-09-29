@@ -96,7 +96,18 @@ def user():
         except:
             return make_response(json.dumps({"error":"Invalid Input"}),404)
 
-        
+    
+    if request.method == "PUT":
+        try:
+            id = request.args.get("id")
+            name = request.args.get("name")
+            print(type(name), name)
+            if id:
+                id = int(id)
+                response = update_name(id,name)
+                return make_response(json.dumps(response), 201)
+        except ValueError:
+            return make_response(json.dumps({"error":"Invalid Input"}),404)
 
             
 
