@@ -5,15 +5,29 @@ from sqlalchemy.exc import IntegrityError
 from app import app , db
 from models import User
 
+
 def select_all():
+    print("IM IN SELECT ALL")
     # selectQuery = User.query.all()
-    
+    # print(selectQuery)
     # selectQuery = db.select(User).scalars()
     with app.app_context():
-        selectQuery = db.session.execute(db.select(User).order_by(User.name)).scalars()
-        print(selectQuery.all())
+        selectQuery = User.query.all()
+    #     selectQuery = db.session.execute(db.select(User).order_by(User.name)).all()
+        # print(selectQuery)
+        # print(type(selectQuery[0]))
+        # print(selectQuery[0].id)
 
+        data = []
+        for i in selectQuery:
+            data.append({"name":i.name, "email":i.email})
+        
+        # print(data)
 
+        return data
+            
+
+select_all()
 # INSERT:
 def add_user(name,email):
         print("IM IN ADD USER")
