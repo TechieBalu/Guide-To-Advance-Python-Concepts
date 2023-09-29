@@ -1,7 +1,7 @@
 from flask import Flask 
 from flask_sqlalchemy import SQLAlchemy
 from datetime import datetime
-from sqlalchemy.exc import IntegrityError
+from sqlalchemy.exc import IntegrityError, NoResultFound
 from app import app , db
 from models import User
 
@@ -20,14 +20,14 @@ def select_all():
 
         data = []
         for i in selectQuery:
-            data.append({"name":i.name, "email":i.email})
+            data.append({"id":i.id,"name":i.name, "email":i.email})
         
         # print(data)
 
         return data
             
 
-select_all()
+# select_all()
 # INSERT:
 def add_user(name,email):
         print("IM IN ADD USER")
@@ -56,9 +56,21 @@ def select_user_by_name_one(name):
     return user
 
 def select_user_by_id(id):
-    with app.app_context():
-        user = db.session.execute(db.select(User).filter_by(id=id)).scalar_one()
-        return user
+    print("im in ID ")
+    try:
+        with app.app_context():
+            user = db.session.execute(db.select(User).filter_by(id=id)).scalar_one()
+            print("USer response is: ",user)
+            data = {"id":user.id, "name":user.name, "email":user.email}
+            return data
+    # User found, continue with processing
+    except NoResultFound:
+        return {"msg": "User Does Not Exists"}
+    # User with the specified ID does not exist, handle the error here
+    # print("User not found.")
+    # with app.app_context():
+    #     user = db.session.execute(db.select(User).filter_by(id=id)).scalar_one()
+        
 
 def select_user_by_name_all(name):
     with app.app_context():
