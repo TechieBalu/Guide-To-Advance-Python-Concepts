@@ -53,33 +53,85 @@ db = SQLAlchemy(app)
 
 # I am writing code here for both scenarios
 
-@app.route("/user", methods=["POST","GET", "PUT", "DELETE", "PATCH"])
-def user():
-    if request.method == "POST":
-        data = request.json
-        name, email = data.get("user", None),  data.get("email", None)
-        if name is None or email is None:
-            error = json.dumps({"Fields Error": "Required Fields Are Not Available"})
-            return make_response(error, 400)
-        print(name,email)
-        # print(data)
-        print(type(data))
-        response = add_user(name,email)
-        if response == True:
-            response = json.dumps({"msg":"Data Added Successfully"})
-            return make_response(response, 200)
+# @app.route("/user", methods=["POST","GET", "PUT", "DELETE", "PATCH"])
+# def user():
+#     if request.method == "POST":
+#         data = request.json
+#         name, email = data.get("user", None),  data.get("email", None)
+#         if name is None or email is None:
+#             error = json.dumps({"Fields Error": "Required Fields Are Not Available"})
+#             return make_response(error, 400)
+#         print(name,email)
+#         # print(data)
+#         print(type(data))
+#         response = add_user(name,email)
+#         if response == True:
+#             response = json.dumps({"msg":"Data Added Successfully"})
+#             return make_response(response, 200)
         
-        return make_response(json.dumps(response), 403)
+#         return make_response(json.dumps(response), 403)
     
+#     if request.method == "GET": 
+#         # everything comes as a string
+#         try:
+#             id = request.args.get("id")
+#             if id:
+#                 id = int(id)
+#                 response = select_user_by_id(id)
+#                 # if user not found
+#                 print("RESPONSE IS: ",response)
+#                 if response == None:
+#                     error = json.dumps({"error":"User Does Not Exists"})
+#                     return make_response(error, 404)
+#                 # if user found
+#                 return make_response(json.dumps(response), 200)
+            
+#             else:
+#                 response = select_all()
+#                 return make_response(json.dumps(response),200)
+        
+#         except:
+#             return make_response(json.dumps({"error":"Invalid Input"}),404)
+
+    
+#     if request.method == "PUT":
+#         try:
+#             id = request.args.get("id")
+#             name = request.args.get("name")
+#             print(type(name), name)
+#             if id:
+#                 id = int(id)
+#                 response,status = update_name(id,name)
+#                 return make_response(json.dumps(response), status)
+#         except ValueError:
+#             return make_response(json.dumps({"error":"Invalid Input"}),404)
+        
+    
+#     if request.method == "DELETE":
+#         try: 
+#             id = request.args.get("id")
+#             print(id)
+#             if id:
+#                 id = int(id)
+#                 response,status = delete(id)
+#                 print(response)
+#                 print(status)
+#                 return make_response(json.dumps(response),status)
+        
+#         except ValueError:
+#             return make_response(json.dumps({"error":"Invalid Input"}), 404)
+
+
+
+@app.route("/user/<int:id>", methods = ["GET"])
+@app.route("/user", methods=["POST","GET", "PUT", "DELETE", "PATCH"])
+def user(id=None):
     if request.method == "GET": 
         # everything comes as a string
         try:
-            id = request.args.get("id")
-            # print("ID is: ", id)
-        # print("THIS IS ID WE GET",id)
-        # print(type(id))
+            # id = request.args.get("id")
             if id:
-                id = int(id)
+                # id = int(id)
                 response = select_user_by_id(id)
                 # if user not found
                 print("RESPONSE IS: ",response)
@@ -96,33 +148,7 @@ def user():
         except:
             return make_response(json.dumps({"error":"Invalid Input"}),404)
 
-    
-    if request.method == "PUT":
-        try:
-            id = request.args.get("id")
-            name = request.args.get("name")
-            print(type(name), name)
-            if id:
-                id = int(id)
-                response,status = update_name(id,name)
-                return make_response(json.dumps(response), status)
-        except ValueError:
-            return make_response(json.dumps({"error":"Invalid Input"}),404)
-        
-    
-    if request.method == "DELETE":
-        try: 
-            id = request.args.get("id")
-            print(id)
-            if id:
-                id = int(id)
-                response,status = delete(id)
-                print(response)
-                print(status)
-                return make_response(json.dumps(response),status)
-        
-        except ValueError:
-            return make_response(json.dumps({"error":"Invalid Input"}), 404)
+
 
             
 if __name__ == "__main__":
