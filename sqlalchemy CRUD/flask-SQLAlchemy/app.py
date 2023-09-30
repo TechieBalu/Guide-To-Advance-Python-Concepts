@@ -108,6 +108,18 @@ def user():
                 return make_response(json.dumps(response), 201)
         except ValueError:
             return make_response(json.dumps({"error":"Invalid Input"}),404)
+        
+    
+    if request.method == "DELETE":
+        try: 
+            id = request.args.get("id")
+            if id:
+                id = int(id)
+                response,status = delete()
+                return make_response(json.dumps(response),status)
+        
+        except ValueError:
+            
 
             
 
