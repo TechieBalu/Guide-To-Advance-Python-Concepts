@@ -107,5 +107,5 @@ def update_name(id,name):
             print("USER IS: ",user)
             id, name, email = user.id, user.name, user.email
             print(id,name,email)
-            return {"id": id, "name":name, "email":email}
-        return {'error': "User Doesnot Found"}
+            return {"id": id, "name":name, "email":email}, 204
+        return {'error': "User Doesnot Found"}, 404
