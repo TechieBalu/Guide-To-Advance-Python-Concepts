@@ -91,6 +91,9 @@ def delete(id):
         if user is not None:
             db.session.delete(user)
             db.session.commit()
+            return {"msg", "User has been Deleted"}
+        else: 
+            return {"error": "User Not Found"}
 
 
 def update_name(id,name):
