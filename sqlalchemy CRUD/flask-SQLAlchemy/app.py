@@ -40,7 +40,7 @@ db = SQLAlchemy(app)
 
 # * IMPORTANT FLASK
 # There are two methods we can use to write get,put,patch requests, 
-# 1- If user sends id in route with vairable (as a parameter) like {base_url}/user?id={user_id} 
+# 1- If user sends id in route with vairable (as a parameter) like {base_url}/user?id=user_id
 # 2- if user just sends id just like this route "user/5" and we capture this id=5 in the id variable in Flask 
 # 
 # For 1st approach we donot need to change the route (user/), user is requesting with method "GET" and passing id like 
@@ -104,8 +104,8 @@ def user():
             print(type(name), name)
             if id:
                 id = int(id)
-                response = update_name(id,name)
-                return make_response(json.dumps(response), 201)
+                response,status = update_name(id,name)
+                return make_response(json.dumps(response), status)
         except ValueError:
             return make_response(json.dumps({"error":"Invalid Input"}),404)
         
@@ -113,13 +113,16 @@ def user():
     if request.method == "DELETE":
         try: 
             id = request.args.get("id")
+            print(id)
             if id:
                 id = int(id)
-                response,status = delete()
+                response,status = delete(id)
+                print(response)
+                print(status)
                 return make_response(json.dumps(response),status)
         
         except ValueError:
-            
+            return make_response(json.dumps({"error":"Invalid Input"}), 404)
 
             
 

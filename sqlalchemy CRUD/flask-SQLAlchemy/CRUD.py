@@ -91,9 +91,9 @@ def delete(id):
         if user is not None:
             db.session.delete(user)
             db.session.commit()
-            return {"msg", "User has been Deleted"}
+            return {"msg": "User has been Deleted"}, 201
         else: 
-            return {"error": "User Not Found"}
+            return {"error": "User Not Found"}, 404
 
 
 def update_name(id,name):
@@ -108,4 +108,4 @@ def update_name(id,name):
             id, name, email = user.id, user.name, user.email
             print(id,name,email)
             return {"id": id, "name":name, "email":email}, 204
-        return {'error': "User Doesnot Found"}, 404
+        return {'error': "User Not Found"}, 404
