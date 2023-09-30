@@ -8,16 +8,9 @@ from models import User
 
 def select_all():
     print("IM IN SELECT ALL")
-    # selectQuery = User.query.all()
-    # print(selectQuery)
-    # selectQuery = db.select(User).scalars()
+
     with app.app_context():
         selectQuery = User.query.all()
-    #     selectQuery = db.session.execute(db.select(User).order_by(User.name)).all()
-        # print(selectQuery)
-        # print(type(selectQuery[0]))
-        # print(selectQuery[0].id)
-
         data = []
         for i in selectQuery:
             data.append({"id":i.id,"name":i.name, "email":i.email})
@@ -27,8 +20,6 @@ def select_all():
         return data
             
 
-# select_all()
-# INSERT:
 def add_user(name,email):
         print("IM IN ADD USER")
         user = User(name = name, email = email)
@@ -41,9 +32,6 @@ def add_user(name,email):
                 db.session.rollback()  # Rollback the transaction to avoid leaving the database in an inconsistent state
                 print(f"IntegrityError: {str(e)}")
                 return {"error":"Email Already Exists"}
-            
-            # finally:
-            #     db.session.close()
 
 def select_user_by_name_one(name):
     with app.app_context():
@@ -51,8 +39,6 @@ def select_user_by_name_one(name):
         print(user)
         print("ID of User is: ", user.id)
         print("Name of User is: ", user.name)
-
-    
     return user
 
 def select_user_by_id(id):
@@ -66,11 +52,6 @@ def select_user_by_id(id):
     # User found, continue with processing
     except NoResultFound:
         return {"msg": "User Does Not Exists"}
-    # User with the specified ID does not exist, handle the error here
-    # print("User not found.")
-    # with app.app_context():
-    #     user = db.session.execute(db.select(User).filter_by(id=id)).scalar_one()
-        
 
 def select_user_by_name_all(name):
     with app.app_context():

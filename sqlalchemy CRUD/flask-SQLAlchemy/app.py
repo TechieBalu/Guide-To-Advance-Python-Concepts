@@ -125,18 +125,5 @@ def user():
             return make_response(json.dumps({"error":"Invalid Input"}), 404)
 
             
-
-# add_user("Arslan", "arslan@gmail.com")        
-# CRUD.select_all()
-# # select_user_by_name_one("Shahmeer")
-# select_user_by_name_all("Shahmeer")
-# delete(2)
-# select_all()
-# update(3,"Shahmeer Khan")
-# print("\n\n SELECT ALL")
-# select_all()
-
-
-
 if __name__ == "__main__":
-    app.run(debug=True)
+    app.run(debug=True,port=5000)
