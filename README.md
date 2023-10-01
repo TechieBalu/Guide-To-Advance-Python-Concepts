@@ -35,7 +35,7 @@ We will talk about the following topics:
 - Subprocess Python
 - SECRETS OF PYTHON
 - Zen of Python
-- No Commit
+- Commit
 
 At the end of this series, you can find the `.doc` file as well in the Resources directory of this repo. `.doc` file will include all the notes with code snippets and their explanation.
 
