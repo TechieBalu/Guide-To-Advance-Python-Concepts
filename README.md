@@ -15,7 +15,7 @@ We will talk about the following topics:
 - List vs Tuple vs Dictionary vs Sets vs Frozen sets  :white_check_mark:
 - List comprehension  :hourglass_flowing_sand:
 - Packing , Unpacking of arguments
-- Recurrsion
+- Recursion
 - Argument Parsing :hourglass_flowing_sand:
 - Hashing techniques in Python
 - Itertools in Python
