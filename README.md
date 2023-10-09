@@ -1,4 +1,4 @@
-## Advance Python Concepts
+# Advance Python Concepts
 
 We will talk about the following topics: 
 - Closures and Decorators in Python 	:white_check_mark:
