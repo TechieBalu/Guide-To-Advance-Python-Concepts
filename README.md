@@ -14,8 +14,8 @@ We will talk about the following topics:
 - Filter Function 	:white_check_mark:
 - List vs Tuple vs Dictionary vs Sets vs Frozen sets  :white_check_mark:
 - List comprehension  :hourglass_flowing_sand:
-- Packing , Unpacking of arguments
-- Recurrsion
+- Packing and unpacking of arguments
+- Recursion
 - Argument Parsing :hourglass_flowing_sand:
 - Hashing techniques in Python
 - Itertools in Python
@@ -31,10 +31,10 @@ We will talk about the following topics:
 - Regular Expressions in Python 
 - Logging in Python 
 - Performance measurements
-- Python Automations
+- Python Automation
 - Subprocess Python
 - SECRETS OF PYTHON
-- Zen of Python
+- Zen of Python  ..
 
 At the end of this series, you can find the `.doc` file as well in the Resources directory of this repo. `.doc` file will include all the notes with code snippets and their explanation.
 
