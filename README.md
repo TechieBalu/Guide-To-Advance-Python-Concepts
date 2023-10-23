@@ -22,11 +22,11 @@ We will explore the following advanced Python concepts:
 10. **Map Function** ✅
 11. **Filter Function** ✅
 12. **List vs Tuple vs Dictionary vs Sets vs Frozen Sets** ✅
-13. **List Comprehension** ⏳✅
+13. **List Comprehension** ✅
 14. **Packing and Unpacking of Arguments** (Upcoming)
 15. **Recursion** (Upcoming)
 16. **Argument Parsing** ⏳ ✅
-17. **Hashing Techniques in Python** (Upcoming)
+17. **Hashing Techniques in Python** ⏳  (Upcoming)
 18. **Itertools in Python** (Upcoming)
 19. **Collections**
     - Counters
