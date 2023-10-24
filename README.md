@@ -27,23 +27,24 @@ We will explore the following advanced Python concepts:
 15. **Recursion** (Upcoming)
 16. **Argument Parsing** ⏳ ✅
 17. **Hashing Techniques in Python** ⏳  (Upcoming)
-18. **Itertools in Python** (Upcoming)
-19. **Collections**
+18. **Enum class in Python** (Upcoming)
+19. **Itertools in Python** (Upcoming)
+20. **Collections**
     - Counters
     - Default Dict
     - DeQueue
-20. **File Handling** (Upcoming)
-21. **Exception Handling in Python** (Upcoming)
-22. **Sync and Async in Python** (Upcoming)
-23. **Threading and Multiprocessing Concepts (GIL)** ⏳ (Work in Progress)
-24. **Parallelization in Python** (Upcoming)
-25. **Regular Expressions in Python** (Upcoming)
-26. **Logging in Python** (Upcoming)
-27. **Performance Measurements** (Upcoming)
-28. **Python Automation** (Upcoming)
-29. **Subprocess in Python** (Upcoming)
-30. **SECRETS OF PYTHON** (Upcoming)
-31. **Zen of Python** (Upcoming)
+21. **File Handling** (Upcoming)
+22. **Exception Handling in Python** (Upcoming)
+23. **Sync and Async in Python** (Upcoming)
+24. **Threading and Multiprocessing Concepts (GIL)** ⏳ (Work in Progress)
+25. **Parallelization in Python** (Upcoming)
+26. **Regular Expressions in Python** (Upcoming)
+27. **Logging in Python** (Upcoming)
+28. **Performance Measurements** (Upcoming)
+29. **Python Automation** (Upcoming)
+30. **Subprocess in Python** (Upcoming)
+31. **SECRETS OF PYTHON** (Upcoming)
+32. **Zen of Python** (Upcoming)
 
 ## Resources
 
