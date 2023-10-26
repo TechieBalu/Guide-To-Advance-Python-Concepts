@@ -23,9 +23,9 @@ We will explore the following advanced Python concepts:
 11. **Filter Function** ✅
 12. **List vs Tuple vs Dictionary vs Sets vs Frozen Sets** ✅
 13. **List Comprehension** ✅
-14. **Packing and Unpacking of Arguments** (Upcoming)
+14. **Packing and Unpacking of Arguments** ✅
 15. **Recursion** (Upcoming)
-16. **Argument Parsing** ⏳ ✅
+16. **Argument Parsing argparser (CLI)** ⏳ (Upcoming)
 17. **Hashing Techniques in Python** ⏳  (Upcoming)
 18. **Enum class in Python** (Upcoming)
 19. **Itertools in Python** (Upcoming)
