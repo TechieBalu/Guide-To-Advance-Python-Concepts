@@ -28,7 +28,7 @@ class Book(pydantic.BaseModel):
     subtitle: Optional[str]
     # author2: Optional[Author]
 
-    @pydantic.validator("isbn_10")
+    @pydantic.field_validator("isbn_10")
     @classmethod
     def check_ISBN10(cls, value):
         chars = [c for c in value if c in "0123456789Xx"]
@@ -46,14 +46,22 @@ class Book(pydantic.BaseModel):
         # return value
     
     # Validation on whole model
-    @pydantic.root_validator(pre=True)
+    @pydantic.model_validator(mode='before')
     @classmethod
     def check_isb10_or_isbn13(cls,values):
         if "isbn_10" not in values and "isbn_13" not in values: 
             raise ISBNMissingError(title=values['title'], 
                                    message="Document should have either an ISBN10 or ISBN13")
         return values
+    
+    class Config:
+        forzen = False 
 
+# If validations failed, Pydantics will raise error beautifully 
+# try:
+#     User(**external_data)  
+# except ValidationError as e:
+#     print(e.errors())
 
 
 def main() -> None:
@@ -71,6 +79,7 @@ def main() -> None:
         # print(books)
         ic(type(books))
         ic(books[0].title)
+        books[0].title = "OK"
         ic(type(books[0]))
 
         # print(books[0])
