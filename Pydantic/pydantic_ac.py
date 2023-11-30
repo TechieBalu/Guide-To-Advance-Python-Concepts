@@ -56,6 +56,7 @@ class Book(pydantic.BaseModel):
     
     class Config:
         forzen = False 
+        str_to_lower= True
 
 # If validations failed, Pydantics will raise error beautifully 
 # try:
@@ -85,6 +86,8 @@ def main() -> None:
         # print(books[0])
         # print(books[0].dict(exclude={"price"}))
         # print(books[1].copy())
+        # print(books[1].copy(deep=True))
+
 
 
 if __name__ == "__main__":
