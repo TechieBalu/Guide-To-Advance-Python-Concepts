@@ -4,7 +4,13 @@ import pydantic
 from icecream import ic
 # from beartype.typing import Optional, List
 
+class ISBNMissingError(Exception): 
+    def __init__(self, title:str, message:str) -> None:
+        self.title = title
+        self.message = message
+        super().__init__(message)
 
+        
 class ISBN10FormatError(Exception): 
     def __init__(self, value:str, message:str) -> None:
         self.value = value
@@ -39,6 +45,11 @@ class Book(pydantic.BaseModel):
             raise ISBN10FormatError(value=value, message="ISBN10 digit sum should be divisiable by 11.")
         # return value
     
+    # Validation on whole model
+    @pydantic.root_validator(pre=True)
+    @classmethod
+    def check_isb10_or_isbn13(cls,values):
+        return values
 
 
 
