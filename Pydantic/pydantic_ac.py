@@ -10,7 +10,7 @@ class ISBNMissingError(Exception):
         self.message = message
         super().__init__(message)
 
-        
+
 class ISBN10FormatError(Exception): 
     def __init__(self, value:str, message:str) -> None:
         self.value = value
@@ -49,6 +49,9 @@ class Book(pydantic.BaseModel):
     @pydantic.root_validator(pre=True)
     @classmethod
     def check_isb10_or_isbn13(cls,values):
+        if "isbn_10" not in values and "isbn_13" not in values: 
+            raise ISBNMissingError(title=values['title'], 
+                                   message="Document should have either an ISBN10 or ISBN13")
         return values
 
 
