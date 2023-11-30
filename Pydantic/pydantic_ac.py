@@ -77,7 +77,7 @@ def main() -> None:
 
 
         books: List[Book] = [Book(**item) for item in data]
-        # print(books)
+        ic(books)
         ic(type(books))
         ic(books[0].title)
         books[0].title = "OK"
