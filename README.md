@@ -1,8 +1,10 @@
-# Advance Python Concepts
+# Advance Python Concepts [![MIT License](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT)
+[![Follow me on Medium](https://img.shields.io/badge/Medium-%40meer--khan-02b875?style=for-the-badge&logo=medium)](https://medium.com/@meer-khan) [![GitHub](https://img.shields.io/badge/GitHub-%40meer--khan-181717?style=for-the-badge&logo=github)](https://github.com/meer-khan)
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-%40meer--khan-0077B5?style=for-the-badge&logo=linkedin)](https://www.linkedin.com/in/meer-khan/)
+
 
 ![Python Version](https://img.shields.io/badge/Python-3.8%2B-brightgreen)
 ![Django Version](https://img.shields.io/badge/Django-3.2%2B-blue)
-[![GitHub license](https://img.shields.io/github/license/yourusername/Django-Projects)](https://github.com/yourusername/Django-Projects/blob/main/LICENSE)
 
 Welcome to the "Advance Python Concepts" repository! In this collection, we delve into advanced Python topics, providing you with a deeper understanding of Python's capabilities and functionalities.
 
@@ -23,9 +25,9 @@ We will explore the following advanced Python concepts:
 11. **Filter Function** ✅
 12. **List vs Tuple vs Dictionary vs Sets vs Frozen Sets** ✅
 13. **List Comprehension** ✅
-14. **Packing and Unpacking of Arguments** (Upcoming)
+14. **Packing and Unpacking of Arguments** ✅
 15. **Recursion** (Upcoming)
-16. **Argument Parsing** ⏳ ✅
+16. **Argument Parsing argparser (CLI)** ⏳ (Upcoming)
 17. **Hashing Techniques in Python** ⏳  (Upcoming)
 18. **Enum class in Python** (Upcoming)
 19. **Itertools in Python** (Upcoming)
