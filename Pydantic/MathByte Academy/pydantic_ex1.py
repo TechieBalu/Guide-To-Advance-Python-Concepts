@@ -207,3 +207,26 @@ ic(p5)
 print(hasattr(p5,"first_name"))
 print(hasattr(p5,"junk"))
 ic(p5.model_dump())
+
+
+def snake_to_camel_case(value:str)-> str: 
+    if not isinstance(value,str):
+        raise ValueError("Value must be string")
+    words = value.split("_")
+    value = ''.join(word.title() for word in words if word)
+    return f"{value[0].lower()}{value[1:]}"
+
+
+
+# Part-6
+from pydantic import conint, constr
+
+class CustomBaseModel(BaseModel):
+    class Config: 
+        alias_generator = snake_to_camel_case
+        extra = "forbid"
+        populate_by_name = True
+
+class Test(CustomBaseModel): 
+    age: conint(gt=0,le=150)
+    last_name = constr(strip_whitespace=True, strict=True,  min_length=2) #strict means, if any datatype that is castable to string but not actually string, throw an error.
