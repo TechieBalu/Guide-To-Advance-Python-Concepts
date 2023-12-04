@@ -1,6 +1,7 @@
 from pydantic import BaseModel, ValidationError, Field
 from icecream import ic
 from typing import Optional
+from datetime import date
 
 class Person(BaseModel): 
     first_name : str = Field(strict=False)
@@ -47,22 +48,95 @@ NOTE: OFFICIAL DOC- Either .model_dump() or dict(user) will provide a dict of fi
 '''
 
 # * Transforming Person class object into python dict 
-print("\nTransforming Person class object into python dict ")
+print("\n1-Transforming Person class object into python dict ")
 p1_to_dict = p1.model_dump()
 ic(type(p1_to_dict), p1_to_dict)
 
 # * Transforming Person class object into json directly
-print("\nTransforming Person class object into json directly")
+print("\n2-Transforming Person class object into json directly")
 p1_to_json = p1.model_dump_json()
 ic(type(p1_to_json), p1_to_json)
 
 # * Excluding some fields, while using model_dump 
-print("\nExcluding some fields, while using model_dump ")
+print("\n3-Excluding some fields, while using model_dump ")
 p1_to_dict = p1.model_dump(exclude=["num2"])
 ic(type(p1_to_dict), p1_to_dict)
 
 
 # * Excluding some fields, while using model_dump_json 
-print("\nExcluding some fields, while using model_dump ")
-p1_to_dict = p1.model_dump_json(exclude={"age"}) # In exlude, we can use lists, tuples and sets of values
+print("\n4-Excluding some fields, while using model_dump ")
+p1_to_json = p1.model_dump_json(exclude={"age"}) # In exlude, we can use lists, tuples and sets of values
+ic(type(p1_to_json), p1_to_json)
+
+
+
+# * Including some fields, while using model_dump 
+print("\n5-Including some fields, while using model_dump ")
+p1_to_dict = p1.model_dump(include=["first_name"])
 ic(type(p1_to_dict), p1_to_dict)
+
+
+# * Including some fields, while using model_dump_json 
+print("\n6-Including some fields, while using model_dump_json ")
+p1_to_json = p1.model_dump_json(include=["first_name"], indent=4)
+ic(type(p1_to_json), p1_to_json)
+
+# * Creation of another model to understand deserialization 
+class Person2(BaseModel): 
+    first_name : str
+    last_name : str
+    dob: date
+
+
+# Parse Python dictionary and pass it to the Person2 object
+# Instructor converted the string formatted date (ISO format) using parse_obj function into python date
+# but first, parse_obj is depricated and second model_validate is the latest function 
+# and model_validate does not accepts the string formatted date
+data = {"first_name": "Muhammad", "last_name": "Khan", "dob": date(1643,1,4)}
+p2 = Person2.model_validate(data)
+print("\n7- Date Object")
+ic(p2)
+
+# *IMPORANT :
+# >> For python we create variables in snake case 
+# >> But for JSON guide, variables should be in camel case 
+
+# Part - Field
+# If we define alias, then we need to pass data with keys of Alias and not the variable name of Person3 class
+class Person3(BaseModel): 
+    first_name : str = Field(default="M", alias="firstName")
+    last_name : str = Field( alias="lastName")
+    dob: date = date(1643,1,4)
+
+data = {"first_name": "Muhammad", "lastName": "Khan"}
+p3 = Person3.model_validate(data)
+print('''\n8- Define Aliases, first_name will be printed as default value "M" becasue, this should
+      be written as 'firstName' and lastName is correct in data so it will be printed as "Khan" ''')
+ic(p3)
+
+data = {"firstName": "Muhammad"}
+'''
+As we know, last_name does not has any default value and it's alias is "lastName"
+model_validator throw error if we donot pass the lastName and also we can see 
+that in error.json, ValidationError of Pydantic is using the aliases instead of variable names
+'''
+try:
+    p3 = Person3.model_validate(data)
+    print("\n9- Define Aliases and generate error if we donot pass name key as alias")
+    ic(p3)
+except ValidationError as e: 
+    ic(e.json(indent=1))
+
+
+
+data = {"first_name": "Muhammad", "lastName": "Khan"}
+p3 = Person3.model_validate(data)
+print("\n10- Complete data provided to Person class, in return it will give variable names not aliases")
+ic(p3.model_dump())
+
+
+
+# PART2 - 
+''' We can configure pydantic to allow us to use field/variable names and not aliases 
+# becasue it is not a good pythonic practice to pass data as alias to the variable which has 
+# different name ''' 
