@@ -140,3 +140,70 @@ ic(p3.model_dump())
 ''' We can configure pydantic to allow us to use field/variable names and not aliases 
 # becasue it is not a good pythonic practice to pass data as alias to the variable which has 
 # different name ''' 
+
+class Person4(BaseModel): 
+    first_name : str = Field(default="M", alias="firstName")
+    last_name : str = Field( alias="lastName")
+    dob: date = date(1643,1,4)
+    class Config: 
+        populate_by_name = True
+
+# Now I can create data fields, using variable names or aliases, it is upto me
+data = {"first_name": "Muhammad", "lastName": "Khan"}
+p3 = Person4(firstName="Muhammad", last_name = "Khan")
+# p3 = Person4.model_validate(data)
+print("\n11- Use variable name or alias doesnot matter")
+ic(p3)
+
+# Part3
+'''
+Using aliases in the return output of model_dump or model_dump_json
+'''
+data = {"first_name": "Muhammad", "lastName": "Khan"}
+p3 = Person4(firstName="Muhammad", last_name = "Khan")
+# p3 = Person4.model_validate(data)
+print("\n12- Return alias name in deserialization (converting to python dict or json)")
+ic(p3.model_dump(by_alias=True))
+ic(p3.model_dump_json(by_alias=True)) #This is useful to follow json naming conventions
+
+
+# Part4
+'''Default Behavior, if we pass additional parameter to the Person class, 
+it will ignore that vairable'''
+data = {"first_name": "Muhammad", "lastName": "Khan"}
+p3 = Person4(firstName="Muhammad", last_name = "Khan", junk= "META JUNK")
+print("\n13- Removed Extra passed parameters")
+ic(p3)
+
+
+data = {"first_name": "Muhammad", "lastName": "Khan", "junk": "META JUNK"}
+p3 = Person4(**data )
+print("\n14- Removed Extra passed parameters")
+ic(p3)
+print(hasattr(p3,"first_name"))
+print(hasattr(p3,"junk"))
+
+
+# Part5 
+'''
+Allow Extra values 
+'''
+
+class Person5(BaseModel): 
+    first_name : str = Field(default="M", alias="firstName")
+    last_name : str = Field( alias="lastName")
+    dob: date = date(1643,1,4)
+    class Config: 
+        populate_by_name = True
+        extra = "allow" # "allow" will allow extra fields, 
+                        # "ignore" will ignore extra fields without any error
+                        # "forbid" will raise error if extra field is added
+
+                        
+data = {"first_name": "Muhammad", "lastName": "Khan", "junk": "META JUNK"}
+p5 = Person5(**data )
+print("\n15- Added Extra Fields due to configurations of allow extra")
+ic(p5)
+print(hasattr(p5,"first_name"))
+print(hasattr(p5,"junk"))
+ic(p5.model_dump())
