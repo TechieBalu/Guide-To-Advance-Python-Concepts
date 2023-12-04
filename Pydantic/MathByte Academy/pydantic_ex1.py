@@ -10,8 +10,8 @@ class Person(BaseModel):
     >> Below operator is not acceptable in python 3.9 it is introduced in python 3.10
     >> OFFICIAL DOC: required, can be None - same as str | None
     '''
-    num: int | None
-    # if we want to use Optional in v3.9 we need to do  
+    # num: int | None
+    # if we want to use Optional in v3.9 or below 3.10 we need to do  
     '''
     OFFICIAL DOC: not required, can be None
     '''
@@ -19,7 +19,7 @@ class Person(BaseModel):
 
 
 # it converts string into integer for integer fields but not converts integer into string for string fileds
-p1 = Person(first_name="SHAHMEER", last_name="Khan", age="25", num="70")
+p1 = Person(first_name="SHAHMEER", last_name="Khan", age="25")
 
 ic(p1)
 
@@ -33,7 +33,7 @@ try:
     '''
     p2 = Person(first_name="F",last_name="N",age="90", num=90 )
     ic(p2)
-    ic(type(p2.age) )
+    ic(type(p2) )
 
 
 except ValidationError as e:
@@ -45,3 +45,24 @@ NOTE: OFFICIAL DOC- Either .model_dump() or dict(user) will provide a dict of fi
                     numerous other arguments. (Note that dict(user) will not recursively convert nested models into dicts, 
                     but .model_dump() will.)
 '''
+
+# * Transforming Person class object into python dict 
+print("\nTransforming Person class object into python dict ")
+p1_to_dict = p1.model_dump()
+ic(type(p1_to_dict), p1_to_dict)
+
+# * Transforming Person class object into json directly
+print("\nTransforming Person class object into json directly")
+p1_to_json = p1.model_dump_json()
+ic(type(p1_to_json), p1_to_json)
+
+# * Excluding some fields, while using model_dump 
+print("\nExcluding some fields, while using model_dump ")
+p1_to_dict = p1.model_dump(exclude=["num2"])
+ic(type(p1_to_dict), p1_to_dict)
+
+
+# * Excluding some fields, while using model_dump_json 
+print("\nExcluding some fields, while using model_dump ")
+p1_to_dict = p1.model_dump_json(exclude={"age"}) # In exlude, we can use lists, tuples and sets of values
+ic(type(p1_to_dict), p1_to_dict)
