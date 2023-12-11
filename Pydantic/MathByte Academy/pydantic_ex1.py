@@ -1,4 +1,4 @@
-from pydantic import BaseModel, ValidationError, Field
+from pydantic import BaseModel, ValidationError, Field, field_validator, model_validator
 from icecream import ic
 from typing import Optional
 from datetime import date
@@ -226,11 +226,29 @@ from pydantic import BaseModel, StringConstraints
 class CustomBaseModel(BaseModel):
     class Config: 
         alias_generator = snake_to_camel_case
-        extra = "forbid"
-        populate_by_name = True
+        extra = "forbid" #Whether to ignore, allow, or forbid extra attributes during model initialization. Defaults to 'ignore'
+        populate_by_name = True #Whether an aliased field may be populated by its name as given by the model attribute, as well as the alias. Defaults to False.
 
 class Test(CustomBaseModel): 
     age: conint(gt=0,le=150)
     # last_name: constr(strip_whitespace=True, strict=True,  min_length=2) #strict means, if any datatype that is castable to string but not actually string, throw an error.
     # constr will be deprecated in v3
     last_name: Annotated[str, StringConstraints(strip_whitespace=True, strict=True)]
+
+
+t = Test(age=1, last_name="          JKJKJ             JKJK              ")
+ic(t)
+
+
+class Test2(CustomBaseModel):
+    hash_tag : str
+
+    @field_validator("hash_tag")
+    @classmethod
+    def validate_hash_tag(cls,value):
+        if value.startswith("#"):
+            return value 
+        return "#"+value
+    
+t2 = Test2(hash_tag="OK")
+ic(t2)
