@@ -220,6 +220,8 @@ def snake_to_camel_case(value:str)-> str:
 
 # Part-6
 from pydantic import conint, constr
+from typing_extensions import Annotated
+from pydantic import BaseModel, StringConstraints
 
 class CustomBaseModel(BaseModel):
     class Config: 
@@ -229,4 +231,6 @@ class CustomBaseModel(BaseModel):
 
 class Test(CustomBaseModel): 
     age: conint(gt=0,le=150)
-    last_name = constr(strip_whitespace=True, strict=True,  min_length=2) #strict means, if any datatype that is castable to string but not actually string, throw an error.
+    # last_name: constr(strip_whitespace=True, strict=True,  min_length=2) #strict means, if any datatype that is castable to string but not actually string, throw an error.
+    # constr will be deprecated in v3
+    last_name: Annotated[str, StringConstraints(strip_whitespace=True, strict=True)]
