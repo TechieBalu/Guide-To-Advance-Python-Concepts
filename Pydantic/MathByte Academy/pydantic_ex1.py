@@ -249,6 +249,27 @@ class Test2(CustomBaseModel):
         if value.startswith("#"):
             return value 
         return "#"+value
+        raise ValueError("hash_tag must start with #")
     
 t2 = Test2(hash_tag="OK")
 ic(t2)
+
+# PART 7
+# class Test3(CustomBaseModel):
+#     hash_tag : Annotated[str,StringConstraints(min_length=5)]
+
+#     @field_validator("hash_tag", mode="before")
+#     @classmethod
+#     def validate_hash_tag(cls,value):
+#         if value.startswith("#"):
+#             return value 
+#         return "#"+value
+#         # raise ValueError("hash_tag must start with #")
+    
+# t3 = Test3(hash_tag="OK")
+# ic(t2)
+
+x:str = 10
+# x = 10 
+print(x)
+print(type(x))
