@@ -269,7 +269,7 @@ ic(t2)
 # t3 = Test3(hash_tag="OK")
 # ic(t2)
 
-x:str = 10
+x:str = "90"
 # x = 10 
 print(x)
 print(type(x))
