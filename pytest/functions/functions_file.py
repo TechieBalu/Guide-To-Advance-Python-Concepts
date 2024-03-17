@@ -2,7 +2,7 @@ def add_numbers(a, b):
     return a + b
 
 def divide_numbers(a, b):
-    return a + b
+    return a / b
 
 def divide_numbers_zerodivisionerror(a, b):
     if b == 0:
