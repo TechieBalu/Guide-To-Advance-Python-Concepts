@@ -5,3 +5,5 @@ Pandas by Corey Schafer/surver_results_public.csv
 *.tsv
 *.xlsx
 *.json
+*.coverage
+*.pyc
